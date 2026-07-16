@@ -10,10 +10,10 @@
 
     <meta
         name="description"
-        content="View the Looply student profile and account information."
+        content="View the Looply teacher profile and account information."
     >
 
-    <title>Looply | Student Profile</title>
+    <title>Looply | Teacher Profile</title>
 
     <link
         rel="stylesheet"
@@ -27,27 +27,30 @@
 
     <link
         rel="stylesheet"
-        href="../../css/dashboard-student.css"
+        href="../../css/dashboard.css"
     >
-    <link rel="stylesheet" href="../../css/profile.css">
 
+    <link
+        rel="stylesheet"
+        href="../../css/profile.css"
+    >
 </head>
 
-<body class="student-page profile-page">
+<body class="teacher-page profile-page">
 
-    <!-- Shared student topbar -->
-    <header id="student-topbar-root"></header>
+    <!-- Shared teacher topbar -->
+    <header id="teacher-topbar-root"></header>
 
-    <!-- Shared student sidebar -->
-    <aside id="student-sidebar-root"></aside>
+    <!-- Shared teacher sidebar -->
+    <aside id="teacher-sidebar-root"></aside>
 
     <!-- Mobile sidebar overlay -->
     <div
-        id="student-sidebar-overlay"
-        class="student-sidebar-overlay"
+        id="teacher-sidebar-overlay"
+        class="teacher-sidebar-overlay"
     ></div>
 
-    <main class="student-main">
+    <main class="teacher-main">
 
         <div class="profile-container">
 
@@ -55,7 +58,7 @@
             <section class="profile-page-header">
 
                 <span class="profile-page-label">
-                    Student Account
+                    Teacher Account
                 </span>
 
                 <h1 class="profile-page-title">
@@ -73,9 +76,9 @@
 
                 <div
                     class="profile-avatar"
-                    aria-label="Omar Ahmad initials"
+                    aria-label="Tariq Ahmad initials"
                 >
-                    <span>OA</span>
+                    <span>TA</span>
                 </div>
 
                 <div class="profile-summary-content">
@@ -83,20 +86,20 @@
                     <div class="profile-name-row">
 
                         <h2 data-profile-name>
-                            Omar Ahmad
+                            Tariq Ahmad
                         </h2>
 
                         <span
                             class="profile-role"
                             data-profile-role
                         >
-                            Student
+                            Teacher
                         </span>
 
                     </div>
 
                     <p data-profile-email>
-                        omar.ahmad@looply.edu
+                        tariq.ahmad@looply.edu
                     </p>
 
                     <div class="profile-account-status">
@@ -124,7 +127,7 @@
                         <h2>Account Information</h2>
 
                         <p>
-                            Your registered student information in Looply.
+                            Your registered teacher information in Looply.
                         </p>
 
                     </div>
@@ -132,7 +135,7 @@
                     <span class="profile-panel-icon">
 
                         <i
-                            class="bi bi-person"
+                            class="bi bi-person-badge"
                             aria-hidden="true"
                         ></i>
 
@@ -159,7 +162,7 @@
                             <small>Full Name</small>
 
                             <strong data-profile-name>
-                                Omar Ahmad
+                                Tariq Ahmad
                             </strong>
 
                         </div>
@@ -183,7 +186,7 @@
                             <small>Email Address</small>
 
                             <strong data-profile-email>
-                                omar.ahmad@looply.edu
+                                tariq.ahmad@looply.edu
                             </strong>
 
                         </div>
@@ -196,7 +199,7 @@
                         <span class="profile-information-icon">
 
                             <i
-                                class="bi bi-mortarboard"
+                                class="bi bi-person-workspace"
                                 aria-hidden="true"
                             ></i>
 
@@ -207,7 +210,7 @@
                             <small>Account Role</small>
 
                             <strong data-profile-role>
-                                Student
+                                Teacher
                             </strong>
 
                         </div>
@@ -235,8 +238,8 @@
                     <h2>Account Access</h2>
 
                     <p>
-                        This student account can access available exams
-                        and review completed exam results.
+                        This teacher account can manage students, exams,
+                        and exam results.
                     </p>
 
                 </div>
@@ -247,9 +250,9 @@
 
     </main>
 
-    <!-- Shared student layout scripts -->
-    <script src="../../js/components/student-topbar.js"></script>
-    <script src="../../js/components/student-sidebar.js"></script>
+    <!-- Shared teacher layout scripts -->
+    <script src="../../js/components/teacher-topbar.js"></script>
+    <script src="../../js/components/teacher-sidebar.js"></script>
 
 </body>
 </html>

@@ -1,190 +1,468 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Looply — Exams</title>
+    <meta charset="UTF-8">
 
-    <!-- Bootstrap & Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <!-- Looply Real Design System Stylesheets -->
-    <link rel="stylesheet" href="../../css/base.css">
-    <link rel="stylesheet" href="../../css/dashboard-student.css">
-    <link rel="stylesheet" href="../../css/exam.css">
+    <meta
+        name="description"
+        content="View available programming exams in the Looply student dashboard."
+    >
+
+    <title>Looply | Available Exams</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../css/base.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../css/dashboard-student.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../css/student-exam.css"
+    >
 </head>
 
 <body class="student-page">
 
-    <!-- Managed by external JS components -->
+    <!-- Shared student topbar -->
     <header id="student-topbar-root"></header>
+
+    <!-- Shared student sidebar -->
     <aside id="student-sidebar-root"></aside>
-    <div id="student-sidebar-overlay" class="student-sidebar-overlay"></div>
+
+    <!-- Mobile sidebar overlay -->
+    <div
+        id="student-sidebar-overlay"
+        class="student-sidebar-overlay"
+    ></div>
 
     <main class="student-main">
 
-        <!-- pt-5 and mt-5 to clear the 72px topbar gracefully without inline CSS -->
-        <div class="container-fluid px-5 pt-5 mt-5">
+        <div class="student-exams-page">
 
-            <!-- 1. Page Header -->
-            <div
-                class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-5">
+            <!-- Page header -->
+            <section class="student-exams-header">
+
+                <div class="student-exams-header-content">
+
+                    <span class="student-exams-label">
+                        Student Exams
+                    </span>
+
+                    <h1 class="student-exams-title">
+                        Available Exams
+                    </h1>
+
+                    <p class="student-exams-description">
+                        Review the exam information before starting.
+                        Each exam can only be submitted once.
+                    </p>
+
+                </div>
+
+                <a
+                    href="history.html"
+                    class="student-exams-history-btn"
+                >
+                    <i
+                        class="bi bi-clock-history"
+                        aria-hidden="true"
+                    ></i>
+
+                    <span>Exam History</span>
+                </a>
+
+            </section>
+
+            <!-- Exams list panel -->
+            <section class="student-exams-panel">
+
+                <div class="student-exams-panel-header">
+
+                    <div class="student-exams-panel-heading">
+
+                        <div class="student-exams-heading-row">
+
+                            <h2>Exams You Can Take</h2>
+
+                            <span class="student-exams-count">
+                                2 exams
+                            </span>
+
+                        </div>
+
+                        <p>
+                            These exams are currently active and available
+                            for submission.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="student-exams-list">
+
+                    <!-- Exam 1 -->
+                    <article class="student-exam-card">
+
+                        <div class="student-exam-card-main">
+
+                            <div class="student-exam-card-heading">
+
+                                <span class="student-exam-card-icon">
+                                    <i
+                                        class="bi bi-braces"
+                                        aria-hidden="true"
+                                    ></i>
+                                </span>
+
+                                <div class="student-exam-card-title">
+
+                                    <div class="student-exam-title-row">
+
+                                        <h3>
+                                            JavaScript Fundamentals
+                                        </h3>
+
+                                        <span class="student-exam-available">
+                                            Available
+                                        </span>
+
+                                    </div>
+
+                                    <p>
+                                        Test your understanding of variables,
+                                        conditions, functions, arrays, and
+                                        JavaScript fundamentals.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div
+                                class="student-exam-details"
+                                aria-label="JavaScript Fundamentals exam information"
+                            >
+
+                                <div class="student-exam-detail">
+
+                                    <span class="student-exam-detail-icon">
+                                        <i
+                                            class="bi bi-list-ol"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </span>
+
+                                    <div>
+
+                                        <small>Questions</small>
+
+                                        <strong>15 questions</strong>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="student-exam-detail">
+
+                                    <span class="student-exam-detail-icon">
+                                        <i
+                                            class="bi bi-clock"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </span>
+
+                                    <div>
+
+                                        <small>Duration</small>
+
+                                        <strong>60 minutes</strong>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="student-exam-detail">
+
+                                    <span class="student-exam-detail-icon">
+                                        <i
+                                            class="bi bi-calendar-event"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </span>
+
+                                    <div>
+
+                                        <small>Available Until</small>
+
+                                        <strong>July 18, 2026</strong>
+
+                                        <span>4:00 PM</span>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="student-exam-detail">
+
+                                    <span class="student-exam-detail-icon">
+                                        <i
+                                            class="bi bi-award"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </span>
+
+                                    <div>
+
+                                        <small>Total Score</small>
+
+                                        <strong>75 points</strong>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="student-exam-card-actions">
+
+                            <div class="student-exam-card-note">
+
+                                <i
+                                    class="bi bi-info-circle"
+                                    aria-hidden="true"
+                                ></i>
+
+                                <p>
+                                    The timer begins when you start the exam.
+                                </p>
+
+                            </div>
+
+                            <a
+                                href="take-exam.html"
+                                class="student-exam-start-btn"
+                            >
+                                <span>Start Exam</span>
+
+                                <i
+                                    class="bi bi-arrow-right"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                    <!-- Exam 2 -->
+                    <article class="student-exam-card">
+
+                        <div class="student-exam-card-main">
+
+                            <div class="student-exam-card-heading">
+
+                                <span class="student-exam-card-icon">
+                                    <i
+                                        class="bi bi-filetype-html"
+                                        aria-hidden="true"
+                                    ></i>
+                                </span>
+
+                                <div class="student-exam-card-title">
+
+                                    <div class="student-exam-title-row">
+
+                                        <h3>
+                                            HTML &amp; CSS Essentials
+                                        </h3>
+
+                                        <span class="student-exam-available">
+                                            Available
+                                        </span>
+
+                                    </div>
+
+                                    <p>
+                                        Review semantic HTML, forms, selectors,
+                                        box model, Flexbox, and responsive
+                                        design fundamentals.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div
+                                class="student-exam-details"
+                                aria-label="HTML and CSS Essentials exam information"
+                            >
+
+                                <div class="student-exam-detail">
+
+                                    <span class="student-exam-detail-icon">
+                                        <i
+                                            class="bi bi-list-ol"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </span>
+
+                                    <div>
+
+                                        <small>Questions</small>
+
+                                        <strong>20 questions</strong>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="student-exam-detail">
+
+                                    <span class="student-exam-detail-icon">
+                                        <i
+                                            class="bi bi-clock"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </span>
+
+                                    <div>
+
+                                        <small>Duration</small>
+
+                                        <strong>75 minutes</strong>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="student-exam-detail">
+
+                                    <span class="student-exam-detail-icon">
+                                        <i
+                                            class="bi bi-calendar-event"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </span>
+
+                                    <div>
+
+                                        <small>Available Until</small>
+
+                                        <strong>July 22, 2026</strong>
+
+                                        <span>12:00 PM</span>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="student-exam-detail">
+
+                                    <span class="student-exam-detail-icon">
+                                        <i
+                                            class="bi bi-award"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </span>
+
+                                    <div>
+
+                                        <small>Total Score</small>
+
+                                        <strong>100 points</strong>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="student-exam-card-actions">
+
+                            <div class="student-exam-card-note">
+
+                                <i
+                                    class="bi bi-info-circle"
+                                    aria-hidden="true"
+                                ></i>
+
+                                <p>
+                                    The exam can only be submitted once.
+                                </p>
+
+                            </div>
+
+                            <a
+                                href="take-exam.html"
+                                class="student-exam-start-btn"
+                            >
+                                <span>Start Exam</span>
+
+                                <i
+                                    class="bi bi-arrow-right"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- Page note -->
+            <section class="student-exams-page-note">
+
+                <span>
+                    <i
+                        class="bi bi-shield-check"
+                        aria-hidden="true"
+                    ></i>
+                </span>
+
                 <div>
-                    <h1 class="t-ex-page-title m-0">Exams</h1>
-                    <p class="t-ex-page-subtitle m-0 mt-1">View and start your assigned assessments.</p>
+
+                    <h2>Before Starting an Exam</h2>
+
+                    <p>
+                        Make sure you have enough time to complete the exam
+                        and a stable internet connection before pressing
+                        Start Exam.
+                    </p>
+
                 </div>
 
-                <!-- Search bar mapped to exam.css layout -->
-                <div class="t-ex-search-wrapper">
-                    <i class="bi bi-search t-ex-search-icon top-50 translate-middle-y"></i>
-                    <input type="search" class="t-ex-search-input" placeholder="Search exams..."
-                        aria-label="Search exams">
-                </div>
-            </div>
-
-            <!-- 2. Stat Cards -->
-            <div class="row g-4 mb-5">
-
-                <div class="col-12 col-md-4">
-                    <div class="t-ex-stat-card">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <span class="t-ex-stat-label">Available</span>
-                            <i class="bi bi-file-earmark-text t-ex-stat-label"></i>
-                        </div>
-                        <h2 class="t-ex-stat-value" id="stat-available">00</h2>
-                        <span class="t-ex-stat-sub">Active exams</span>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-4">
-                    <div class="t-ex-stat-card">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <span class="t-ex-stat-label">Completed</span>
-                            <i class="bi bi-check-circle t-ex-stat-label"></i>
-                        </div>
-                        <h2 class="t-ex-stat-value" id="stat-completed">00</h2>
-                        <span class="t-ex-stat-sub">Submitted exams</span>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-4">
-                    <div class="t-ex-stat-card">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <span class="t-ex-stat-label">Upcoming</span>
-                            <i class="bi bi-calendar t-ex-stat-label"></i>
-                        </div>
-                        <h2 class="t-ex-stat-value" id="stat-upcoming">00</h2>
-                        <span class="t-ex-stat-sub">Scheduled soon</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- 3. Exam Schedule Table Panel -->
-            <div class="t-ex-panel p-4 p-md-5 mb-5">
-                <div class="mb-4">
-                    <h2 class="t-ex-panel-title m-0">Exam Schedule</h2>
-                    <span class="t-ex-panel-subtitle">All assigned assessments</span>
-                </div>
-
-                <div class="table-responsive">
-                    <table class="t-ex-table">
-                        <thead>
-                            <tr>
-                                <th>Exam Title</th>
-                                <th>Start Date &amp; Time</th>
-                                <th>End Date &amp; Time</th>
-                                <th>Status</th>
-                                <th>Submission</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="exams-tbody">
-                            <!-- Populated via JS -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            </section>
 
         </div>
+
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-
+    <!-- Shared layout scripts only -->
     <script src="../../js/components/student-topbar.js"></script>
     <script src="../../js/components/student-sidebar.js"></script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const examSchedule = [
-                {id: 1, title: "JavaScript", startDate: "Jul 15, 2026", endDate: "Jul 18, 2026", status: "Active", submissionStatus: "Not submitted"},
-                {id: 2, title: "HTML5 & CSS3", startDate: "Jul 20, 2026", endDate: "Jul 22, 2026", status: "Upcoming", submissionStatus: "—"},
-            ];
-
-            // Update Top Stats
-            document.getElementById("stat-available").textContent = String(examSchedule.filter(e => e.status === "Active").length).padStart(2, "0");
-            document.getElementById("stat-completed").textContent = String(examSchedule.filter(e => e.submissionStatus === "Submitted").length).padStart(2, "0");
-            document.getElementById("stat-upcoming").textContent = String(examSchedule.filter(e => e.status === "Upcoming").length).padStart(2, "0");
-
-            const tbody = document.getElementById("exams-tbody");
-
-            if (examSchedule.length === 0) {
-                tbody.innerHTML = `
-          <tr>
-            <td colspan="6" class="text-center py-5">
-              <div class="d-flex flex-column align-items-center opacity-75">
-                <i class="bi bi-journal-x mb-2 display-6 text-secondary"></i>
-                <p class="m-0 t-ex-name-sub">No exams scheduled</p>
-                <span class="t-ex-date mt-1">Exams assigned to you will appear here</span>
-              </div>
-            </td>
-          </tr>`;
-            } else {
-                // Map directly onto the teacher's t-ex-table-row for the glow effect
-                tbody.innerHTML = examSchedule.map(exam => {
-
-                    // Using native Bootstrap utility badges for states missing from exam.css
-                    let badgeHTML = '';
-                    if (exam.status === "Active") {
-                        badgeHTML = `<span class="t-ex-status-badge active">Active</span>`;
-                    } else if (exam.status === "Upcoming") {
-                        badgeHTML = `<span class="badge rounded-pill text-bg-warning text-dark px-3 py-2 border border-warning-subtle opacity-75">Upcoming</span>`;
-                    } else {
-                        badgeHTML = `<span class="badge rounded-pill text-bg-secondary px-3 py-2 border border-secondary-subtle">${exam.status}</span>`;
-                    }
-
-                    // Force using the primary-btn (orange) class from base.css
-                    const actionBtn = exam.status === "Active"
-                        ? `<button class="primary-btn px-4 py-2" style="min-height: unset; font-size: 0.8rem;">Start</button>`
-                        : `<button class="btn btn-outline-secondary border-0 opacity-50 px-4 py-2" disabled>—</button>`;
-
-                    return `
-            <tr class="t-ex-table-row">
-              <td>
-                <div class="t-ex-title-cell">
-                  <span class="t-ex-name-main">${exam.title}</span>
-                </div>
-              </td>
-              <td><span class="t-ex-date">${exam.startDate}</span></td>
-              <td><span class="t-ex-date">${exam.endDate}</span></td>
-              <td>${badgeHTML}</td>
-              <td><span class="t-ex-numeric">${exam.submissionStatus}</span></td>
-              <td>
-                <div class="t-ex-actions">
-                  ${actionBtn}
-                </div>
-              </td>
-            </tr>`;
-                }).join("");
-            }
-        });
-    </script>
-
 </body>
-
 </html>

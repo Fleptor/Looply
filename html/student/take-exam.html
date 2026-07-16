@@ -2,15 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/base.css">
-    <link rel="stylesheet" href="../../css/dashboard-student.css">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Take a programming exam in the Looply student workspace."
+    >
+
+    <title>Looply | Take Exam</title>
+
     <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
->
-    <title>Document</title>
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../css/base.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../css/dashboard-student.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../css/student-exam.css"
+    >
 </head>
+
 <body class="student-page">
 
     <header id="student-topbar-root"></header>
@@ -23,10 +48,608 @@
     ></div>
 
     <main class="student-main">
-        <!-- Page content -->
+
+        <form
+            id="student-exam-form"
+            class="take-exam-page"
+            action="#"
+            method="post"
+        >
+
+            <input
+                type="hidden"
+                name="exam_id"
+                value="exam-1"
+            >
+
+            <!-- Exam header -->
+            <section class="take-exam-header">
+
+                <div class="take-exam-header-content">
+
+                    <span class="take-exam-label">
+                        Active Exam
+                    </span>
+
+                    <h1 class="take-exam-title">
+                        JavaScript Fundamentals
+                    </h1>
+
+                    <p class="take-exam-description">
+                        Answer all questions before submitting the exam.
+                        You can review and change your answers until submission.
+                    </p>
+
+                </div>
+
+                <div
+                    class="take-exam-timer"
+                    id="exam-timer"
+                    aria-label="Time remaining"
+                >
+
+                    <span class="take-exam-timer-icon">
+                        <i
+                            class="bi bi-clock"
+                            aria-hidden="true"
+                        ></i>
+                    </span>
+
+                    <div>
+                        <small>Time Remaining</small>
+
+                        <strong id="exam-timer-value">
+                            60:00
+                        </strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Exam progress -->
+            <section
+                class="take-exam-progress-panel"
+                aria-label="Exam progress"
+            >
+
+                <div class="take-exam-progress-copy">
+
+                    <span>Exam Progress</span>
+
+                    <strong>
+                        4 questions
+                    </strong>
+
+                </div>
+
+                <div class="take-exam-progress-meta">
+
+                    <span>
+                        <i
+                            class="bi bi-list-check"
+                            aria-hidden="true"
+                        ></i>
+
+                        Answer every question
+                    </span>
+
+                    <span>
+                        <i
+                            class="bi bi-award"
+                            aria-hidden="true"
+                        ></i>
+
+                        20 total points
+                    </span>
+
+                </div>
+
+            </section>
+
+            <div class="take-exam-layout">
+
+                <!-- Questions -->
+                <div class="take-exam-questions">
+
+                    <!-- Question 1 -->
+                    <article
+                        class="take-exam-question"
+                        id="question-1"
+                        data-question-card
+                    >
+
+                        <div class="take-exam-question-header">
+
+                            <div class="take-exam-question-number">
+
+                                <span>Question</span>
+
+                                <strong>01</strong>
+
+                            </div>
+
+                            <div class="take-exam-question-tags">
+
+                                <span class="take-exam-question-type">
+                                    Multiple Choice
+                                </span>
+
+                                <span class="take-exam-question-points">
+                                    5 points
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="take-exam-question-body">
+
+                            <h2>
+                                Which JavaScript keyword declares a
+                                block-scoped variable?
+                            </h2>
+
+                            <fieldset class="take-exam-options">
+
+                                <legend class="visually-hidden">
+                                    Select one answer
+                                </legend>
+
+                                <div class="take-exam-option">
+
+                                    <input
+                                        type="radio"
+                                        id="question-1-answer-a"
+                                        name="question_1"
+                                        value="a"
+                                    >
+
+                                    <label for="question-1-answer-a">
+
+                                        <span class="take-exam-option-letter">
+                                            A
+                                        </span>
+
+                                        <span>var</span>
+
+                                    </label>
+
+                                </div>
+
+                                <div class="take-exam-option">
+
+                                    <input
+                                        type="radio"
+                                        id="question-1-answer-b"
+                                        name="question_1"
+                                        value="b"
+                                    >
+
+                                    <label for="question-1-answer-b">
+
+                                        <span class="take-exam-option-letter">
+                                            B
+                                        </span>
+
+                                        <span>let</span>
+
+                                    </label>
+
+                                </div>
+
+                                <div class="take-exam-option">
+
+                                    <input
+                                        type="radio"
+                                        id="question-1-answer-c"
+                                        name="question_1"
+                                        value="c"
+                                    >
+
+                                    <label for="question-1-answer-c">
+
+                                        <span class="take-exam-option-letter">
+                                            C
+                                        </span>
+
+                                        <span>define</span>
+
+                                    </label>
+
+                                </div>
+
+                                <div class="take-exam-option">
+
+                                    <input
+                                        type="radio"
+                                        id="question-1-answer-d"
+                                        name="question_1"
+                                        value="d"
+                                    >
+
+                                    <label for="question-1-answer-d">
+
+                                        <span class="take-exam-option-letter">
+                                            D
+                                        </span>
+
+                                        <span>static</span>
+
+                                    </label>
+
+                                </div>
+
+                            </fieldset>
+
+                        </div>
+
+                    </article>
+
+                    <!-- Question 2 -->
+                    <article
+                        class="take-exam-question"
+                        id="question-2"
+                        data-question-card
+                    >
+
+                        <div class="take-exam-question-header">
+
+                            <div class="take-exam-question-number">
+
+                                <span>Question</span>
+
+                                <strong>02</strong>
+
+                            </div>
+
+                            <div class="take-exam-question-tags">
+
+                                <span class="take-exam-question-type">
+                                    True or False
+                                </span>
+
+                                <span class="take-exam-question-points">
+                                    5 points
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="take-exam-question-body">
+
+                            <h2>
+                                Properties inside an object declared using
+                                const can still be changed.
+                            </h2>
+
+                            <fieldset
+                                class="
+                                    take-exam-options
+                                    take-exam-options--two
+                                "
+                            >
+
+                                <legend class="visually-hidden">
+                                    Select true or false
+                                </legend>
+
+                                <div class="take-exam-option">
+
+                                    <input
+                                        type="radio"
+                                        id="question-2-answer-true"
+                                        name="question_2"
+                                        value="true"
+                                    >
+
+                                    <label for="question-2-answer-true">
+
+                                        <span class="take-exam-option-letter">
+                                            A
+                                        </span>
+
+                                        <span>True</span>
+
+                                    </label>
+
+                                </div>
+
+                                <div class="take-exam-option">
+
+                                    <input
+                                        type="radio"
+                                        id="question-2-answer-false"
+                                        name="question_2"
+                                        value="false"
+                                    >
+
+                                    <label for="question-2-answer-false">
+
+                                        <span class="take-exam-option-letter">
+                                            B
+                                        </span>
+
+                                        <span>False</span>
+
+                                    </label>
+
+                                </div>
+
+                            </fieldset>
+
+                        </div>
+
+                    </article>
+
+                    <!-- Question 3 -->
+                    <article
+                        class="take-exam-question"
+                        id="question-3"
+                        data-question-card
+                    >
+
+                        <div class="take-exam-question-header">
+
+                            <div class="take-exam-question-number">
+
+                                <span>Question</span>
+
+                                <strong>03</strong>
+
+                            </div>
+
+                            <div class="take-exam-question-tags">
+
+                                <span class="take-exam-question-type">
+                                    Code Output
+                                </span>
+
+                                <span class="take-exam-question-points">
+                                    5 points
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="take-exam-question-body">
+
+                            <h2>
+                                What is the output of the following
+                                JavaScript code?
+                            </h2>
+
+                            <pre class="take-exam-code"><code>const numbers = [1, 2, 3];
+
+const total = numbers.reduce(
+    (sum, number) => sum + number,
+    0
+);
+
+console.log(total);</code></pre>
+
+                            <div class="take-exam-written-field">
+
+                                <label for="question-3-answer">
+                                    Your Answer
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="question-3-answer"
+                                    name="question_3"
+                                    placeholder="Write the expected output"
+                                    autocomplete="off"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <!-- Question 4 -->
+                    <article
+                        class="take-exam-question"
+                        id="question-4"
+                        data-question-card
+                    >
+
+                        <div class="take-exam-question-header">
+
+                            <div class="take-exam-question-number">
+
+                                <span>Question</span>
+
+                                <strong>04</strong>
+
+                            </div>
+
+                            <div class="take-exam-question-tags">
+
+                                <span class="take-exam-question-type">
+                                    Short Answer
+                                </span>
+
+                                <span class="take-exam-question-points">
+                                    5 points
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="take-exam-question-body">
+
+                            <h2>
+                                What does the strict equality operator compare
+                                in JavaScript?
+                            </h2>
+
+                            <div class="take-exam-written-field">
+
+                                <label for="question-4-answer">
+                                    Your Answer
+                                </label>
+
+                                <textarea
+                                    id="question-4-answer"
+                                    name="question_4"
+                                    rows="5"
+                                    maxlength="500"
+                                    placeholder="Write your answer here"
+                                ></textarea>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <!-- Exam sidebar -->
+                <aside class="take-exam-sidebar">
+
+                    <section class="take-exam-navigation-panel">
+
+                        <div class="take-exam-sidebar-header">
+
+                            <h2>Questions</h2>
+
+                            <span>4 total</span>
+
+                        </div>
+
+                        <nav
+                            class="take-exam-question-navigation"
+                            aria-label="Exam question navigation"
+                        >
+
+                            <a
+                                href="#question-1"
+                                class="take-exam-question-link"
+                            >
+                                1
+                            </a>
+
+                            <a
+                                href="#question-2"
+                                class="take-exam-question-link"
+                            >
+                                2
+                            </a>
+
+                            <a
+                                href="#question-3"
+                                class="take-exam-question-link"
+                            >
+                                3
+                            </a>
+
+                            <a
+                                href="#question-4"
+                                class="take-exam-question-link"
+                            >
+                                4
+                            </a>
+
+                        </nav>
+
+                        <div class="take-exam-navigation-note">
+
+                            <i
+                                class="bi bi-info-circle"
+                                aria-hidden="true"
+                            ></i>
+
+                            <p>
+                                Use the question numbers to move through
+                                the exam.
+                            </p>
+
+                        </div>
+
+                    </section>
+
+                    <section class="take-exam-submit-panel">
+
+                        <span class="take-exam-submit-icon">
+                            <i
+                                class="bi bi-send-check"
+                                aria-hidden="true"
+                            ></i>
+                        </span>
+
+                        <div>
+
+                            <h2>Submit Exam</h2>
+
+                            <p>
+                                Review all answers before submitting.
+                                You cannot submit the exam twice.
+                            </p>
+
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="take-exam-submit-btn"
+                            id="submit-exam-btn"
+                            data-submit-exam
+                        >
+                            <i
+                                class="bi bi-check-lg"
+                                aria-hidden="true"
+                            ></i>
+
+                            <span>Submit Exam</span>
+                        </button>
+
+                    </section>
+
+                </aside>
+
+            </div>
+
+            <!-- Bottom actions -->
+            <div class="take-exam-bottom-actions">
+
+                <a
+                    href="exams.html"
+                    class="take-exam-exit-btn"
+                >
+                    <i
+                        class="bi bi-arrow-left"
+                        aria-hidden="true"
+                    ></i>
+
+                    <span>Exit Exam</span>
+                </a>
+
+                <button
+                    type="submit"
+                    class="primary-btn take-exam-bottom-submit-btn"
+                    data-submit-exam
+                >
+                    <i
+                        class="bi bi-check-lg"
+                        aria-hidden="true"
+                    ></i>
+
+                    <span>Submit Exam</span>
+                </button>
+
+            </div>
+
+        </form>
+
     </main>
 
     <script src="../../js/components/student-topbar.js"></script>
     <script src="../../js/components/student-sidebar.js"></script>
+
 </body>
 </html>

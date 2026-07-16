@@ -1,0 +1,653 @@
+/* ==================================================
+   Shared Profile Page
+   Used by Teacher and Student profiles
+   ================================================== */
+
+
+/* ==================================================
+   Page Layout Fix
+   ================================================== */
+
+/*
+   dashboard.css and dashboard-student.css use
+   --page-gutter, which is not defined in base.css.
+
+   These declarations provide valid page padding
+   for both profile pages.
+*/
+
+.teacher-page .teacher-main {
+    padding:
+        calc(var(--teacher-topbar-height, 72px) + 2rem)
+        clamp(1.25rem, 3vw, 3rem)
+        3rem;
+}
+
+.student-page .student-main {
+    padding:
+        calc(var(--student-topbar-height, 72px) + 2rem)
+        clamp(1.25rem, 3vw, 3rem)
+        3rem;
+}
+
+.profile-page {
+    min-height: 100vh;
+
+    color: var(--text);
+    background-color: var(--bg);
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin-inline: auto;
+}
+
+
+/* ==================================================
+   Page Header
+   ================================================== */
+
+.profile-page-header {
+    min-height: 112px;
+}
+
+.profile-page-label {
+    display: block;
+
+    margin-bottom: 0.45rem;
+
+    color: var(--primary);
+
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.profile-page-title {
+    margin: 0;
+
+    color: var(--text);
+
+    font-family: var(--font-title);
+    font-size: clamp(3.2rem, 5vw, 4.6rem);
+    font-weight: 700;
+    line-height: 0.88;
+    letter-spacing: 0.01em;
+}
+
+.profile-page-description {
+    max-width: 680px;
+
+    margin: 0.7rem 0 0;
+
+    color: var(--sec-text);
+
+    font-size: 0.7rem;
+    line-height: 1.7;
+}
+
+
+/* ==================================================
+   Profile Summary Card
+   ================================================== */
+
+.profile-summary-card {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+
+    min-height: 180px;
+    padding: 1.5rem;
+
+    overflow: hidden;
+
+    background-color: var(--box);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    box-shadow:
+        0 16px 36px rgba(0, 0, 0, 0.22);
+}
+
+.profile-summary-card::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    height: 3px;
+
+    background-color: var(--primary);
+
+    content: "";
+}
+
+.profile-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 94px;
+    height: 94px;
+
+    color: var(--text);
+    background-color: var(--primary);
+
+    border: 5px solid rgba(241, 117, 34, 0.14);
+    border-radius: 24px;
+
+    box-shadow:
+        0 12px 28px rgba(241, 117, 34, 0.18);
+
+    font-family: var(--font-title);
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.profile-summary-content {
+    min-width: 0;
+}
+
+.profile-name-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.profile-name-row h2 {
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 1.18rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.profile-role {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 27px;
+    padding-inline: 0.72rem;
+
+    color: var(--primary);
+    background-color: rgba(241, 117, 34, 0.08);
+
+    border: 1px solid rgba(241, 117, 34, 0.28);
+    border-radius: 999px;
+
+    font-size: 0.56rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.profile-summary-content > p {
+    margin: 0.48rem 0 0;
+
+    color: var(--sec-text);
+
+    font-size: 0.68rem;
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+}
+
+.profile-account-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+
+    margin-top: 0.8rem;
+
+    color: var(--success);
+
+    font-size: 0.55rem;
+    font-weight: 600;
+}
+
+.profile-status-dot {
+    position: relative;
+
+    width: 8px;
+    height: 8px;
+
+    background-color: var(--success);
+    border-radius: 50%;
+}
+
+.profile-status-dot::after {
+    position: absolute;
+    inset: -4px;
+
+    border: 1px solid rgba(52, 211, 153, 0.3);
+    border-radius: 50%;
+
+    content: "";
+}
+
+
+/* ==================================================
+   Account Information Panel
+   ================================================== */
+
+.profile-information-panel {
+    width: 100%;
+    overflow: hidden;
+
+    background-color: var(--box);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.19);
+}
+
+.profile-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+
+    min-height: 88px;
+    padding: 1.2rem 1.35rem;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-panel-header > div {
+    min-width: 0;
+}
+
+.profile-panel-header h2 {
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 0.88rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.profile-panel-header p {
+    margin: 0.35rem 0 0;
+
+    color: var(--sec-text);
+
+    font-size: 0.61rem;
+    line-height: 1.55;
+}
+
+.profile-panel-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 42px;
+    height: 42px;
+
+    color: var(--primary);
+    background-color: var(--in-box);
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    font-size: 0.9rem;
+}
+
+
+/* ==================================================
+   Information Grid
+   ================================================== */
+
+.profile-information-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.profile-information-item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0.8rem;
+
+    min-width: 0;
+    min-height: 120px;
+    padding: 1.2rem;
+
+    border-right: 1px solid var(--border);
+
+    transition:
+        background-color var(--transition-normal),
+        border-color var(--transition-normal);
+}
+
+.profile-information-item:last-child {
+    border-right: 0;
+}
+
+.profile-information-item:hover {
+    background-color: rgba(44, 3, 69, 0.24);
+}
+
+.profile-information-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 40px;
+    height: 40px;
+
+    color: var(--primary);
+    background-color: var(--in-box);
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    font-size: 0.84rem;
+}
+
+.profile-information-item > div {
+    min-width: 0;
+}
+
+.profile-information-item small,
+.profile-information-item strong {
+    display: block;
+}
+
+.profile-information-item small {
+    color: var(--third-text);
+
+    font-size: 0.51rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.profile-information-item strong {
+    margin-top: 0.28rem;
+
+    color: var(--text);
+
+    font-size: 0.65rem;
+    font-weight: 600;
+    line-height: 1.55;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* ==================================================
+   Account Access Panel
+   ================================================== */
+
+.profile-access-panel {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0.85rem;
+
+    padding: 1rem 1.15rem;
+
+    background-color: var(--box);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    box-shadow:
+        0 12px 26px rgba(0, 0, 0, 0.15);
+}
+
+.profile-access-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 40px;
+    height: 40px;
+
+    color: var(--primary);
+    background-color: var(--in-box);
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    font-size: 0.86rem;
+}
+
+.profile-access-content {
+    min-width: 0;
+}
+
+.profile-access-content h2 {
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 0.68rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.profile-access-content p {
+    margin: 0.3rem 0 0;
+
+    color: var(--sec-text);
+
+    font-size: 0.57rem;
+    line-height: 1.65;
+}
+
+
+/* ==================================================
+   Student Profile Variation
+   ================================================== */
+
+.student-page .profile-avatar {
+    background-color: var(--primary);
+}
+
+.student-page .profile-role {
+    color: #ffd2b4;
+}
+
+
+/* ==================================================
+   Teacher Profile Variation
+   ================================================== */
+
+.teacher-page .profile-avatar {
+    background-color: var(--primary-dark);
+}
+
+.teacher-page .profile-role {
+    color: #ffd2b4;
+}
+
+
+/* ==================================================
+   Responsive — Tablet
+   ================================================== */
+
+@media (max-width: 900px) {
+    .profile-information-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-information-item {
+        min-height: 96px;
+
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .profile-information-item:last-child {
+        border-bottom: 0;
+    }
+}
+
+
+/* ==================================================
+   Responsive — Small Tablet
+   ================================================== */
+
+@media (max-width: 768px) {
+    .teacher-page .teacher-main {
+        padding:
+            calc(var(--teacher-topbar-height, 72px) + 1.5rem)
+            1.25rem
+            2.5rem;
+    }
+
+    .student-page .student-main {
+        padding:
+            calc(var(--student-topbar-height, 72px) + 1.5rem)
+            1.25rem
+            2.5rem;
+    }
+
+    .profile-page-header {
+        min-height: auto;
+    }
+
+    .profile-summary-card {
+        min-height: 160px;
+    }
+}
+
+
+/* ==================================================
+   Responsive — Mobile
+   ================================================== */
+
+@media (max-width: 576px) {
+    .teacher-page .teacher-main {
+        padding:
+            calc(var(--teacher-topbar-height, 64px) + 1.25rem)
+            1rem
+            2rem;
+    }
+
+    .student-page .student-main {
+        padding:
+            calc(var(--student-topbar-height, 64px) + 1.25rem)
+            1rem
+            2rem;
+    }
+
+    .profile-container {
+        gap: 1rem;
+    }
+
+    .profile-page-title {
+        font-size: 3.2rem;
+    }
+
+    .profile-page-description {
+        font-size: 0.64rem;
+    }
+
+    .profile-summary-card {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1rem;
+
+        padding: 1.2rem;
+    }
+
+    .profile-avatar {
+        width: 78px;
+        height: 78px;
+
+        border-width: 4px;
+        border-radius: 20px;
+
+        font-size: 1.8rem;
+    }
+
+    .profile-name-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.45rem;
+    }
+
+    .profile-name-row h2 {
+        font-size: 1rem;
+    }
+
+    .profile-panel-header {
+        align-items: flex-start;
+
+        padding-inline: 1rem;
+    }
+
+    .profile-panel-header h2 {
+        font-size: 0.78rem;
+    }
+
+    .profile-panel-header p {
+        font-size: 0.56rem;
+    }
+
+    .profile-panel-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .profile-information-item {
+        min-height: 92px;
+        padding-inline: 1rem;
+    }
+
+    .profile-access-panel {
+        align-items: flex-start;
+    }
+}
+
+
+/* ==================================================
+   Very Small Screens
+   ================================================== */
+
+@media (max-width: 390px) {
+    .profile-panel-header {
+        flex-direction: column-reverse;
+    }
+
+    .profile-information-item {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-access-panel {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ==================================================
+   Reduced Motion
+   ================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .profile-information-item {
+        transition: none;
+    }
+}
