@@ -1,51 +1,30 @@
-function renderFooter() {
-  const footerContainer = document.getElementById("footer-container");
+function createFooter() {
+    return `
+        <footer class="public-footer">
+            <div class="container footer-content">
 
-  if (!footerContainer) {
-    return;
-  }
+                <a
+                    href="index.html"
+                    class="footer-logo"
+                    aria-label="Looply home"
+                >
+                    <img
+                        src="../icons/logo.svg"
+                        alt="Looply logo"
+                    >
+                </a>
 
-  const currentYear = new Date().getFullYear();
+                <p class="footer-copyright">
+                    &copy; 2026 Looply. All rights reserved
+                </p>
 
-  footerContainer.innerHTML = `
-    <div class="container">
-      <footer class="py-4 mt-5">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item">
-            <a href="index.html"
-               class="nav-link px-2 text-body-secondary">
-              Home
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="about.html"
-               class="nav-link px-2 text-body-secondary">
-              About
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="contact.html"
-               class="nav-link px-2 text-body-secondary">
-              Contact
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="login.html"
-               class="nav-link px-2 text-body-secondary">
-              Login
-            </a>
-          </li>
-        </ul>
-
-        <p class="text-center text-body-secondary mb-0">
-          © ${currentYear} CodeGrade. All rights reserved.
-        </p>
-      </footer>
-    </div>
-  `;
+            </div>
+        </footer>
+    `;
 }
 
-document.addEventListener("DOMContentLoaded", renderFooter);
+const footerRoot = document.getElementById("footer-root");
+
+if (footerRoot) {
+    footerRoot.innerHTML = createFooter();
+}

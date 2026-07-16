@@ -44,29 +44,7 @@ body{
     font-family: var(--font-main);
     color: var(--text);
 }
-body::before {
-    content: "";
-    position: fixed;
-    left: 50%;
-    top: -16%;
-    z-index: -1;
 
-    width: 850px;
-    height: 850px;
-
-    transform: translateX(-50%);
-
-    background: radial-gradient(
-        circle,
-        rgba(241, 117, 34, 0.11) 0%,
-        rgba(178, 135, 255, 0.07) 28%,
-        rgba(44, 3, 69, 0.05) 45%,
-        transparent 70%
-    );
-
-    border-radius: 50%;
-    pointer-events: none;
-}
 
 
 a{
@@ -128,6 +106,7 @@ svg {
     box-shadow: 0 16px 100px -7px var(--primary-hover);
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     font-weight: 600;
+    font-family: var(--font-main);
 }
 
 
