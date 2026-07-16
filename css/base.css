@@ -29,6 +29,8 @@
     --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.35);
     --transition-normal: 280ms ease;
     --section-space: 8rem;
+    --page-gutter: clamp(1.25rem, 3vw, 3rem);
+
 }
 
 *{

@@ -46,7 +46,7 @@ function createNavbar() {
             <div class="container nav-bar">
 
                 <a
-                    href="index.html"
+                    href="home.html"
                     class="nav-logo"
                     aria-label="Looply home"
                 >
@@ -63,7 +63,7 @@ function createNavbar() {
                     <ul class="nav-links">
                         <li>
                             <a
-                                href="index.html"
+                                href="home.html"
                                 class="nav-link"
                             >
                                 Home
@@ -72,7 +72,7 @@ function createNavbar() {
 
                         <li>
                             <a
-                                href="features.html"
+                                href="#features"
                                 class="nav-link"
                             >
                                 Features
@@ -81,7 +81,7 @@ function createNavbar() {
 
                         <li>
                             <a
-                                href="about-contact.html"
+                                href="contact-about.html"
                                 class="nav-link"
                             >
                                 About &amp; Contact

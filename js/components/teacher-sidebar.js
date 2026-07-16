@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             label: "Profile",
             icon: "bi-person",
-            href: "../profile.html",
+            href: "../../html/teacher/profile.html",
             activePages: ["profile.html"]
         },
         {

@@ -48,7 +48,7 @@ function createStudentTopbar(student) {
             </div>
 
             <a
-                href="../profile.html"
+                href="profile.html"
                 class="student-user-card"
                 aria-label="Open student profile"
             >
