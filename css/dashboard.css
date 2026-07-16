@@ -18,9 +18,7 @@
     margin-left: var(--teacher-sidebar-width);
 
     padding:
-        calc(var(--teacher-topbar-height) + 2rem)
-        var(--page-gutter)
-        3rem;
+        calc(var(--teacher-topbar-height) + 2rem) var(--page-gutter) 3rem;
 
     transition:
         margin-left var(--transition-normal);
@@ -158,11 +156,9 @@
 
     color: #ffffff;
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             var(--primary),
-            var(--primary-hover)
-        );
+            var(--primary-hover));
 
     border-radius: 10px;
 
@@ -229,11 +225,9 @@
     color: var(--text);
 
     background:
-        radial-gradient(
-            circle at 10% 10%,
+        radial-gradient(circle at 10% 10%,
             rgba(65, 36, 130, 0.16),
-            transparent 35%
-        ),
+            transparent 35%),
         var(--box);
 
     border-right: 1px solid var(--border);
@@ -361,11 +355,9 @@
     color: var(--text);
 
     background:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             rgba(65, 36, 130, 0.75),
-            rgba(44, 3, 69, 0.8)
-        );
+            rgba(44, 3, 69, 0.8));
 
     border-color: rgba(178, 135, 255, 0.55);
 
@@ -529,8 +521,7 @@
 .teacher-sidebar {
     scrollbar-width: thin;
     scrollbar-color:
-        rgba(178, 135, 255, 0.3)
-        transparent;
+        rgba(178, 135, 255, 0.3) transparent;
 }
 
 .teacher-sidebar::-webkit-scrollbar {
@@ -611,13 +602,12 @@
 
     .teacher-main {
         padding:
-            calc(var(--teacher-topbar-height) + 1.5rem)
-            1rem
-            2rem;
+            calc(var(--teacher-topbar-height) + 1.5rem) 1rem 2rem;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .teacher-sidebar,
     .teacher-main,
     .teacher-sidebar-overlay,
@@ -626,6 +616,7 @@
         transition: none;
     }
 }
+
 /* ==================================================
    Teacher Students Page
    ================================================== */
@@ -657,16 +648,12 @@ body.teacher-page {
     margin-left: var(--teacher-sidebar-width);
 
     padding:
-        calc(var(--teacher-topbar-height) + 2rem)
-        clamp(1.25rem, 2.5vw, 2.5rem)
-        3rem;
+        calc(var(--teacher-topbar-height) + 2rem) clamp(1.25rem, 2.5vw, 2.5rem) 3rem;
 
     background:
-        radial-gradient(
-            circle at 55% 15%,
+        radial-gradient(circle at 55% 15%,
             rgba(65, 36, 130, 0.1),
-            transparent 38%
-        ),
+            transparent 38%),
         var(--bg);
 
     transition:
@@ -774,11 +761,9 @@ body.teacher-page {
     overflow: hidden;
 
     background:
-        linear-gradient(
-            145deg,
+        linear-gradient(145deg,
             rgba(178, 135, 255, 0.04),
-            transparent 48%
-        ),
+            transparent 48%),
         var(--box);
 
     border: 1px solid var(--border);
@@ -845,7 +830,7 @@ body.teacher-page {
     white-space: nowrap;
 }
 
-.students-panel-heading > p {
+.students-panel-heading>p {
     margin: 0.4rem 0 0;
 
     color: var(--sec-text);
@@ -893,10 +878,7 @@ body.teacher-page {
     min-height: 42px;
 
     padding:
-        0.65rem
-        0.9rem
-        0.65rem
-        2.4rem;
+        0.65rem 0.9rem 0.65rem 2.4rem;
 
     color: var(--text);
     background-color: rgba(44, 3, 69, 0.42);
@@ -1053,11 +1035,9 @@ body.teacher-page {
     color: #ffffff;
 
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             var(--primary),
-            var(--primary-hover)
-        );
+            var(--primary-hover));
 
     border-radius: 9px;
 
@@ -1195,8 +1175,7 @@ body.teacher-page {
 .students-table-wrapper {
     scrollbar-width: thin;
     scrollbar-color:
-        rgba(178, 135, 255, 0.3)
-        transparent;
+        rgba(178, 135, 255, 0.3) transparent;
 }
 
 .students-table-wrapper::-webkit-scrollbar {
@@ -1252,11 +1231,9 @@ body.teacher-page {
     color: var(--text);
 
     background:
-        radial-gradient(
-            circle at 100% 0%,
+        radial-gradient(circle at 100% 0%,
             rgba(65, 36, 130, 0.2),
-            transparent 42%
-        ),
+            transparent 42%),
         var(--box);
 
     border: 1px solid rgba(178, 135, 255, 0.3);
@@ -1535,9 +1512,7 @@ body.teacher-page {
     gap: 0.7rem;
 
     padding:
-        1rem
-        1.65rem
-        1.35rem;
+        1rem 1.65rem 1.35rem;
 
     border-top: 1px solid var(--border);
 }
@@ -1655,9 +1630,7 @@ body.teacher-page {
 
     .teacher-main {
         padding:
-            calc(var(--teacher-topbar-height) + 1.5rem)
-            1rem
-            2rem;
+            calc(var(--teacher-topbar-height) + 1.5rem) 1rem 2rem;
     }
 
     .dashboard-page-title {
@@ -1720,6 +1693,7 @@ body.teacher-page {
    ================================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
     .teacher-main,
     .table-action-btn,
     .student-search input,
@@ -1729,5 +1703,248 @@ body.teacher-page {
     .student-form-group input,
     .student-form-group select {
         transition: none;
+    }
+}
+
+/* ======================================
+   Teacher Dashboard - Unique Page Styles
+====================================== */
+
+/* Welcome Header Custom Fonts */
+.t-dash-welcome-title {
+    font-family: var(--font-title);
+    /* Karantina */
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text);
+    letter-spacing: 0.03em;
+}
+
+.t-dash-welcome-subtitle {
+    font-family: var(--font-main);
+    /* IBM Plex Mono */
+    font-size: 0.9rem;
+    color: var(--sec-text);
+}
+
+/* Header Buttons Custom Styles */
+.t-dash-btn-filled {
+    font-family: var(--font-main);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    background-color: #8c73cc;
+    /* البنفسجي الفاتح المتناسق مع لقطة الشاشة */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    padding: 0.65rem 1.4rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color var(--transition-normal), transform var(--transition-normal);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.t-dash-btn-filled:hover {
+    background-color: #a38ee0;
+    transform: translateY(-1px);
+}
+
+.t-dash-btn-outline {
+    font-family: var(--font-main);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    background-color: transparent;
+    border: 1.5px solid rgba(178, 135, 255, 0.35);
+    border-radius: 14px;
+    padding: 0.65rem 1.4rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: border-color var(--transition-normal), background-color var(--transition-normal), transform var(--transition-normal);
+}
+
+.t-dash-btn-outline:hover {
+    border-color: var(--border-hover);
+    background-color: rgba(178, 135, 255, 0.08);
+    transform: translateY(-1px);
+}
+
+/* Statistics Cards Unique Styles */
+.t-dash-stat-card {
+    background-color: var(--box);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: border-color var(--transition-normal);
+}
+
+.t-dash-stat-card:hover {
+    border-color: var(--border-hover);
+}
+
+.t-dash-stat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.t-dash-stat-title {
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.t-dash-stat-icon {
+    font-size: 1.1rem;
+    color: var(--sec-text);
+    opacity: 0.8;
+}
+
+.t-dash-stat-value {
+    font-family: var(--font-main);
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.t-dash-stat-footer {
+    font-family: var(--font-main);
+    font-size: 0.72rem;
+    color: var(--third-text);
+}
+
+.t-dash-text-live {
+    color: var(--sec-text);
+}
+
+/* Recent Exams Box & Table Styles */
+.t-dash-box {
+    background-color: var(--box);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+}
+
+.t-dash-box-title {
+    font-family: var(--font-main);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+}
+
+/* ======================================
+   Recent Exams Table & Hover Effects
+====================================== */
+
+.t-dash-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    margin-top: -8px;
+}
+
+.t-dash-table th {
+    font-family: var(--font-main);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--sec-text);
+    padding: 1.2rem 1.5rem;
+    background-color: transparent;
+    border: none;
+    letter-spacing: 0.05em;
+}
+
+
+.t-dash-table-row {
+    position: relative;
+    transition: transform var(--transition-normal);
+}
+
+.t-dash-table-row td {
+    font-family: var(--font-main);
+    font-size: 0.85rem;
+    color: var(--text);
+    padding: 1.5rem;
+    background-color: rgba(20, 4, 34, 0.6);
+    border-top: 1px solid rgba(178, 135, 255, 0.1);
+    border-bottom: 1px solid rgba(178, 135, 255, 0.1);
+    vertical-align: middle;
+    transition: background-color var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+
+.t-dash-table-row td:first-child {
+    border-left: 1px solid rgba(178, 135, 255, 0.1);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.t-dash-table-row td:last-child {
+    border-right: 1px solid rgba(178, 135, 255, 0.1);
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+
+.t-dash-table-row:hover td {
+    background-color: rgba(44, 3, 69, 0.5) !important;
+    border-color: var(--border-strong) !important;
+}
+
+
+.t-dash-table-row:hover td:first-child {
+    box-shadow: -8px 0px 15px -5px rgba(178, 135, 255, 0.25);
+}
+
+.t-dash-table-row:hover td:last-child {
+    box-shadow: 8px 0px 15px -5px rgba(178, 135, 255, 0.25);
+}
+
+.t-dash-exam-name {
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* Status Badge Styles */
+.t-dash-badge-active {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 50px;
+    font-family: var(--font-main);
+    color: var(--success);
+    background-color: rgba(52, 211, 153, 0.08);
+    border: 1px solid rgba(52, 211, 153, 0.35);
+}
+
+/* Responsive Custom Rules */
+@media (max-width: 768px) {
+    .t-dash-welcome-title {
+        font-size: 2.8rem;
+    }
+
+    .t-dash-header-actions {
+        width: 100%;
+    }
+
+    .t-dash-btn-filled,
+    .t-dash-btn-outline {
+        flex: 1;
+        justify-content: center;
     }
 }
