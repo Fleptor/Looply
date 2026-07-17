@@ -17,8 +17,11 @@ export const STORAGE_KEYS = Object.freeze({
     USERS: "looply_users",
     EXAMS: "looply_exams",
     ATTEMPTS: "looply_attempts",
-    SESSION: "looply_session",
     SEED_VERSION: "looply_seed_version"
+});
+
+export const SESSION_KEYS = Object.freeze({
+    CURRENT_USER: "looply_current_user"
 });
 
 export const EXAM_STATUS = Object.freeze({

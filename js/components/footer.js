@@ -1,30 +1,65 @@
-function createFooter() {
+export function createPublicFooter(
+    year = new Date().getFullYear()
+) {
     return `
-        <footer class="public-footer">
-            <div class="container footer-content">
+        <div class="container footer-content">
 
-                <a
-                    href="index.html"
-                    class="footer-logo"
-                    aria-label="Looply home"
+            <a
+                href="home.html"
+                class="footer-logo"
+                aria-label="Looply home"
+            >
+                <img
+                    src="../icons/logo.svg"
+                    alt="Looply logo"
                 >
-                    <img
-                        src="../icons/logo.svg"
-                        alt="Looply logo"
-                    >
-                </a>
+            </a>
 
-                <p class="footer-copyright">
-                    &copy; 2026 Looply. All rights reserved
-                </p>
+            <p class="footer-copyright">
+                &copy; ${year} Looply.
+                All rights reserved.
+            </p>
 
-            </div>
-        </footer>
+        </div>
     `;
 }
 
-const footerRoot = document.getElementById("footer-root");
+export function renderPublicFooter(
+    rootSelector = "#footer-root"
+) {
+    const footerRoot =
+        document.querySelector(rootSelector);
 
-if (footerRoot) {
-    footerRoot.innerHTML = createFooter();
+    if (!footerRoot) {
+        console.warn(
+            `Footer root was not found: ${rootSelector}`
+        );
+
+        return false;
+    }
+
+    footerRoot.classList.add(
+        "public-footer"
+    );
+
+    footerRoot.innerHTML =
+        createPublicFooter();
+
+    return true;
+}
+
+function initializePublicFooter() {
+    renderPublicFooter();
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener(
+        "DOMContentLoaded",
+        initializePublicFooter,
+        {
+            once: true
+        }
+    );
+} else {
+    initializePublicFooter();
 }
