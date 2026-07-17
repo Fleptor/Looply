@@ -1,19 +1,9 @@
-/**
- * Convert any value to trimmed text.
- *
- * @param {unknown} value - Value to normalize.
- * @returns {string} Trimmed text, or an empty string for null/undefined.
- */
+
 export function normalizeText(value) {
     return String(value ?? "").trim();
 }
 
-/**
- * Generate a reasonably unique identifier for local application records.
- *
- * @param {string} [prefix="id"] - Identifier prefix, such as user or exam.
- * @returns {string} Generated identifier.
- */
+
 export function generateId(prefix = "id") {
     const normalizedPrefix = normalizeText(prefix)
         .toLowerCase()
@@ -26,12 +16,7 @@ export function generateId(prefix = "id") {
     return `${normalizedPrefix}-${randomPart}`;
 }
 
-/**
- * Extract up to two initials from a full name.
- *
- * @param {unknown} fullName - User's full name.
- * @returns {string} Uppercase initials.
- */
+
 export function getInitials(fullName) {
     return normalizeText(fullName)
         .split(/\s+/)
@@ -41,13 +26,7 @@ export function getInitials(fullName) {
         .join("");
 }
 
-/**
- * Format a date for display.
- *
- * @param {string|number|Date} value - Date-compatible value.
- * @param {string} [locale="ar-JO"] - Intl locale.
- * @returns {string} Formatted date, or "Invalid date" for invalid input.
- */
+
 export function formatDate(value, locale = "ar-JO") {
     const date = new Date(value);
 
@@ -62,13 +41,7 @@ export function formatDate(value, locale = "ar-JO") {
     }).format(date);
 }
 
-/**
- * Format a date and time for display.
- *
- * @param {string|number|Date} value - Date-compatible value.
- * @param {string} [locale="ar-JO"] - Intl locale.
- * @returns {string} Formatted date and time, or "Invalid date".
- */
+
 export function formatDateTime(value, locale = "ar-JO") {
     const date = new Date(value);
 
@@ -85,13 +58,7 @@ export function formatDateTime(value, locale = "ar-JO") {
     }).format(date);
 }
 
-/**
- * Calculate a rounded percentage.
- *
- * @param {number|string} value - Obtained value.
- * @param {number|string} total - Maximum value.
- * @returns {number} Rounded percentage, or 0 when the input is invalid.
- */
+
 export function calculatePercentage(value, total) {
     const numericValue = Number(value);
     const numericTotal = Number(total);
@@ -107,16 +74,7 @@ export function calculatePercentage(value, total) {
     return Math.round((numericValue / numericTotal) * 100);
 }
 
-/**
- * Read one value from a URL query string.
- *
- * Example: exam-result.html?attemptId=attempt-1
- * getQueryParam("attemptId") returns "attempt-1".
- *
- * @param {string} name - Query parameter name.
- * @param {string} [search] - Optional query string, useful for testing.
- * @returns {string|null} Parameter value, or null when it does not exist.
- */
+
 export function getQueryParam(
     name,
     search = globalThis.location?.search ?? ""
