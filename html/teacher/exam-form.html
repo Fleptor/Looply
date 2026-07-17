@@ -1,39 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Create or edit a programming exam in Looply."
-    >
+    <meta name="description" content="Create or edit a programming exam in Looply.">
 
     <title>Looply | Create Exam</title>
 
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <link
-        rel="stylesheet"
-        href="../../css/base.css"
-    >
+    <link rel="stylesheet" href="../../css/base.css">
 
-    <link
-        rel="stylesheet"
-        href="../../css/dashboard.css"
-    >
+    <link rel="stylesheet" href="../../css/dashboard.css">
 
-    <link
-        rel="stylesheet"
-        href="../../css/exam.css"
-    >
+    <link rel="stylesheet" href="../../css/exam.css">
 </head>
 
 <body class="teacher-page">
@@ -45,24 +28,15 @@
     <aside id="teacher-sidebar-root"></aside>
 
     <!-- Sidebar overlay for mobile -->
-    <div
-        id="teacher-sidebar-overlay"
-        class="teacher-sidebar-overlay"
-    ></div>
+    <div id="teacher-sidebar-overlay" class="teacher-sidebar-overlay"></div>
 
     <main class="teacher-main">
 
         <div class="teacher-content exam-form-page">
 
             <!-- Back link -->
-            <a
-                href="exams.html"
-                class="exam-form-back-link"
-            >
-                <i
-                    class="bi bi-arrow-left"
-                    aria-hidden="true"
-                ></i>
+            <a href="exams.html" class="exam-form-back-link">
+                <i class="bi bi-arrow-left" aria-hidden="true"></i>
 
                 <span>Back to Exams</span>
             </a>
@@ -90,18 +64,9 @@
             </section>
 
             <!-- Exam form -->
-            <form
-                id="exam-form"
-                class="exam-form"
-                action="#"
-                method="post"
-            >
+            <form id="exam-form" class="exam-form" action="#" method="post">
 
-                <input
-                    type="hidden"
-                    name="exam_id"
-                    value=""
-                >
+                <input type="hidden" name="exam_id" value="">
 
                 <!-- Basic information -->
                 <section class="exam-form-panel">
@@ -121,10 +86,7 @@
 
                         <span class="exam-form-panel-icon">
 
-                            <i
-                                class="bi bi-file-earmark-text"
-                                aria-hidden="true"
-                            ></i>
+                            <i class="bi bi-file-earmark-text" aria-hidden="true"></i>
 
                         </span>
 
@@ -135,12 +97,10 @@
                         <div class="exam-form-grid">
 
                             <!-- Exam title -->
-                            <div
-                                class="
+                            <div class="
                                     exam-form-field
                                     exam-form-field--full
-                                "
-                            >
+                                ">
 
                                 <label for="exam-title">
 
@@ -150,14 +110,8 @@
 
                                 </label>
 
-                                <input
-                                    type="text"
-                                    id="exam-title"
-                                    name="title"
-                                    placeholder="Example: JavaScript Fundamentals"
-                                    maxlength="100"
-                                    required
-                                >
+                                <input type="text" id="exam-title" name="title"
+                                    placeholder="Example: JavaScript Fundamentals" maxlength="100" required>
 
                                 <small>
                                     Use a short and clear title.
@@ -166,12 +120,10 @@
                             </div>
 
                             <!-- Description -->
-                            <div
-                                class="
+                            <div class="
                                     exam-form-field
                                     exam-form-field--full
-                                "
-                            >
+                                ">
 
                                 <label for="exam-description">
 
@@ -181,14 +133,8 @@
 
                                 </label>
 
-                                <textarea
-                                    id="exam-description"
-                                    name="description"
-                                    rows="5"
-                                    maxlength="600"
-                                    placeholder="Describe the topics and objectives of this exam."
-                                    required
-                                ></textarea>
+                                <textarea id="exam-description" name="description" rows="5" maxlength="600"
+                                    placeholder="Describe the topics and objectives of this exam." required></textarea>
 
                                 <small>
                                     This description appears on the exam
@@ -198,24 +144,17 @@
                             </div>
 
                             <!-- Instructions -->
-                            <div
-                                class="
+                            <div class="
                                     exam-form-field
                                     exam-form-field--full
-                                "
-                            >
+                                ">
 
                                 <label for="exam-instructions">
                                     Student Instructions
                                 </label>
 
-                                <textarea
-                                    id="exam-instructions"
-                                    name="instructions"
-                                    rows="6"
-                                    maxlength="1000"
-                                    placeholder="Write each instruction on a separate line."
-                                ></textarea>
+                                <textarea id="exam-instructions" name="instructions" rows="6" maxlength="1000"
+                                    placeholder="Write each instruction on a separate line."></textarea>
 
                                 <small>
                                     Add rules students should follow during
@@ -248,10 +187,7 @@
 
                         <span class="exam-form-panel-icon">
 
-                            <i
-                                class="bi bi-calendar-event"
-                                aria-hidden="true"
-                            ></i>
+                            <i class="bi bi-calendar-event" aria-hidden="true"></i>
 
                         </span>
 
@@ -272,12 +208,7 @@
 
                                 </label>
 
-                                <input
-                                    type="date"
-                                    id="exam-start-date"
-                                    name="start_date"
-                                    required
-                                >
+                                <input type="date" id="exam-start-date" name="start_date" required>
 
                             </div>
 
@@ -292,12 +223,7 @@
 
                                 </label>
 
-                                <input
-                                    type="time"
-                                    id="exam-start-time"
-                                    name="start_time"
-                                    required
-                                >
+                                <input type="time" id="exam-start-time" name="start_time" required>
 
                             </div>
 
@@ -312,12 +238,7 @@
 
                                 </label>
 
-                                <input
-                                    type="date"
-                                    id="exam-end-date"
-                                    name="end_date"
-                                    required
-                                >
+                                <input type="date" id="exam-end-date" name="end_date" required>
 
                             </div>
 
@@ -332,12 +253,7 @@
 
                                 </label>
 
-                                <input
-                                    type="time"
-                                    id="exam-end-time"
-                                    name="end_time"
-                                    required
-                                >
+                                <input type="time" id="exam-end-time" name="end_time" required>
 
                             </div>
 
@@ -354,15 +270,8 @@
 
                                 <div class="exam-input-with-suffix">
 
-                                    <input
-                                        type="number"
-                                        id="exam-duration"
-                                        name="duration"
-                                        min="1"
-                                        max="600"
-                                        placeholder="60"
-                                        required
-                                    >
+                                    <input type="number" id="exam-duration" name="duration" min="1" max="600"
+                                        placeholder="60" required>
 
                                     <span>minutes</span>
 
@@ -385,22 +294,14 @@
 
                                     <div class="exam-status-option">
 
-                                        <input
-                                            type="radio"
-                                            id="exam-status-inactive"
-                                            name="status"
-                                            value="inactive"
-                                            checked
-                                        >
+                                        <input type="radio" id="exam-status-inactive" name="status" value="inactive"
+                                            checked>
 
                                         <label for="exam-status-inactive">
 
                                             <span class="exam-status-option-icon">
 
-                                                <i
-                                                    class="bi bi-pause-circle"
-                                                    aria-hidden="true"
-                                                ></i>
+                                                <i class="bi bi-pause-circle" aria-hidden="true"></i>
 
                                             </span>
 
@@ -420,21 +321,13 @@
 
                                     <div class="exam-status-option">
 
-                                        <input
-                                            type="radio"
-                                            id="exam-status-active"
-                                            name="status"
-                                            value="active"
-                                        >
+                                        <input type="radio" id="exam-status-active" name="status" value="active">
 
                                         <label for="exam-status-active">
 
                                             <span class="exam-status-option-icon">
 
-                                                <i
-                                                    class="bi bi-play-circle"
-                                                    aria-hidden="true"
-                                                ></i>
+                                                <i class="bi bi-play-circle" aria-hidden="true"></i>
 
                                             </span>
 
@@ -473,10 +366,7 @@
 
                                 <h2>Questions</h2>
 
-                                <span
-                                    class="exam-form-question-count"
-                                    id="exam-question-count"
-                                >
+                                <span class="exam-form-question-count" id="exam-question-count">
                                     1 question
                                 </span>
 
@@ -489,17 +379,10 @@
 
                         </div>
 
-                        <button
-                            type="button"
-                            class="exam-form-add-question-btn"
-                            id="add-question-btn"
-                            data-add-question
-                        >
+                        <button type="button" class="exam-form-add-question-btn" id="add-question-btn"
+                            data-add-question>
 
-                            <i
-                                class="bi bi-plus-lg"
-                                aria-hidden="true"
-                            ></i>
+                            <i class="bi bi-plus-lg" aria-hidden="true"></i>
 
                             <span>Add Question</span>
 
@@ -507,18 +390,10 @@
 
                     </div>
 
-                    <div
-                        class="exam-question-editor-list"
-                        id="exam-question-list"
-                        data-question-list
-                    >
+                    <div class="exam-question-editor-list" id="exam-question-list" data-question-list>
 
                         <!-- Question editor -->
-                        <article
-                            class="exam-question-editor"
-                            data-question-card
-                            data-question-index="1"
-                        >
+                        <article class="exam-question-editor" data-question-card data-question-index="1">
 
                             <div class="exam-question-editor-header">
 
@@ -530,18 +405,10 @@
 
                                 </div>
 
-                                <button
-                                    type="button"
-                                    class="exam-question-remove-btn"
-                                    data-remove-question
-                                    aria-label="Remove question 1"
-                                    title="Remove question"
-                                >
+                                <button type="button" class="exam-question-remove-btn" data-remove-question
+                                    aria-label="Remove question 1" title="Remove question">
 
-                                    <i
-                                        class="bi bi-trash"
-                                        aria-hidden="true"
-                                    ></i>
+                                    <i class="bi bi-trash" aria-hidden="true"></i>
 
                                     <span>Remove</span>
 
@@ -564,12 +431,8 @@
 
                                         </label>
 
-                                        <select
-                                            id="question-1-type"
-                                            name="questions[0][type]"
-                                            data-question-type-select
-                                            required
-                                        >
+                                        <select id="question-1-type" name="questions[0][type]" data-question-type-select
+                                            required>
 
                                             <option value="multiple-choice">
                                                 Multiple Choice
@@ -601,15 +464,8 @@
 
                                         </label>
 
-                                        <input
-                                            type="number"
-                                            id="question-1-points"
-                                            name="questions[0][points]"
-                                            min="1"
-                                            max="100"
-                                            value="5"
-                                            required
-                                        >
+                                        <input type="number" id="question-1-points" name="questions[0][points]" min="1"
+                                            max="100" value="5" required>
 
                                     </div>
 
@@ -626,14 +482,8 @@
 
                                     </label>
 
-                                    <textarea
-                                        id="question-1-text"
-                                        name="questions[0][text]"
-                                        rows="4"
-                                        maxlength="1000"
-                                        placeholder="Write the question here."
-                                        required
-                                    ></textarea>
+                                    <textarea id="question-1-text" name="questions[0][text]" rows="4" maxlength="1000"
+                                        placeholder="Write the question here." required></textarea>
 
                                 </div>
 
@@ -645,14 +495,9 @@
                                         <small>Optional</small>
                                     </label>
 
-                                    <textarea
-                                        id="question-1-code"
-                                        name="questions[0][code]"
-                                        class="exam-code-input"
-                                        rows="7"
-                                        spellcheck="false"
-                                        placeholder="const message = 'Hello';&#10;console.log(message);"
-                                    ></textarea>
+                                    <textarea id="question-1-code" name="questions[0][code]" class="exam-code-input"
+                                        rows="7" spellcheck="false"
+                                        placeholder="const message = 'Hello';&#10;console.log(message);"></textarea>
 
                                     <small>
                                         Leave this empty when the question
@@ -662,10 +507,7 @@
                                 </div>
 
                                 <!-- Answer options -->
-                                <fieldset
-                                    class="exam-answer-options"
-                                    data-answer-options
-                                >
+                                <fieldset class="exam-answer-options" data-answer-options>
 
                                     <div class="exam-answer-options-header">
 
@@ -691,145 +533,80 @@
                                     <!-- Option A -->
                                     <div class="exam-answer-option-row">
 
-                                        <input
-                                            type="radio"
-                                            id="question-1-correct-a"
-                                            name="questions[0][correct_answer]"
-                                            value="a"
-                                            required
-                                        >
+                                        <input type="radio" id="question-1-correct-a"
+                                            name="questions[0][correct_answer]" value="a" required>
 
-                                        <label
-                                            for="question-1-correct-a"
-                                            class="exam-answer-correct-control"
-                                            title="Mark option A as correct"
-                                        >
+                                        <label for="question-1-correct-a" class="exam-answer-correct-control"
+                                            title="Mark option A as correct">
 
                                             <span>A</span>
 
-                                            <i
-                                                class="bi bi-check-lg"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="bi bi-check-lg" aria-hidden="true"></i>
 
                                         </label>
 
-                                        <input
-                                            type="text"
-                                            id="question-1-option-a"
-                                            name="questions[0][options][a]"
-                                            placeholder="Enter option A"
-                                            maxlength="300"
-                                            required
-                                        >
+                                        <input type="text" id="question-1-option-a" name="questions[0][options][a]"
+                                            placeholder="Enter option A" maxlength="300" required>
 
                                     </div>
 
                                     <!-- Option B -->
                                     <div class="exam-answer-option-row">
 
-                                        <input
-                                            type="radio"
-                                            id="question-1-correct-b"
-                                            name="questions[0][correct_answer]"
-                                            value="b"
-                                        >
+                                        <input type="radio" id="question-1-correct-b"
+                                            name="questions[0][correct_answer]" value="b">
 
-                                        <label
-                                            for="question-1-correct-b"
-                                            class="exam-answer-correct-control"
-                                            title="Mark option B as correct"
-                                        >
+                                        <label for="question-1-correct-b" class="exam-answer-correct-control"
+                                            title="Mark option B as correct">
 
                                             <span>B</span>
 
-                                            <i
-                                                class="bi bi-check-lg"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="bi bi-check-lg" aria-hidden="true"></i>
 
                                         </label>
 
-                                        <input
-                                            type="text"
-                                            id="question-1-option-b"
-                                            name="questions[0][options][b]"
-                                            placeholder="Enter option B"
-                                            maxlength="300"
-                                            required
-                                        >
+                                        <input type="text" id="question-1-option-b" name="questions[0][options][b]"
+                                            placeholder="Enter option B" maxlength="300" required>
 
                                     </div>
 
                                     <!-- Option C -->
                                     <div class="exam-answer-option-row">
 
-                                        <input
-                                            type="radio"
-                                            id="question-1-correct-c"
-                                            name="questions[0][correct_answer]"
-                                            value="c"
-                                        >
+                                        <input type="radio" id="question-1-correct-c"
+                                            name="questions[0][correct_answer]" value="c">
 
-                                        <label
-                                            for="question-1-correct-c"
-                                            class="exam-answer-correct-control"
-                                            title="Mark option C as correct"
-                                        >
+                                        <label for="question-1-correct-c" class="exam-answer-correct-control"
+                                            title="Mark option C as correct">
 
                                             <span>C</span>
 
-                                            <i
-                                                class="bi bi-check-lg"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="bi bi-check-lg" aria-hidden="true"></i>
 
                                         </label>
 
-                                        <input
-                                            type="text"
-                                            id="question-1-option-c"
-                                            name="questions[0][options][c]"
-                                            placeholder="Enter option C"
-                                            maxlength="300"
-                                            required
-                                        >
+                                        <input type="text" id="question-1-option-c" name="questions[0][options][c]"
+                                            placeholder="Enter option C" maxlength="300" required>
 
                                     </div>
 
                                     <!-- Option D -->
                                     <div class="exam-answer-option-row">
 
-                                        <input
-                                            type="radio"
-                                            id="question-1-correct-d"
-                                            name="questions[0][correct_answer]"
-                                            value="d"
-                                        >
+                                        <input type="radio" id="question-1-correct-d"
+                                            name="questions[0][correct_answer]" value="d">
 
-                                        <label
-                                            for="question-1-correct-d"
-                                            class="exam-answer-correct-control"
-                                            title="Mark option D as correct"
-                                        >
+                                        <label for="question-1-correct-d" class="exam-answer-correct-control"
+                                            title="Mark option D as correct">
 
                                             <span>D</span>
 
-                                            <i
-                                                class="bi bi-check-lg"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="bi bi-check-lg" aria-hidden="true"></i>
 
                                         </label>
 
-                                        <input
-                                            type="text"
-                                            id="question-1-option-d"
-                                            name="questions[0][options][d]"
-                                            placeholder="Enter option D"
-                                            maxlength="300"
-                                            required
-                                        >
+                                        <input type="text" id="question-1-option-d" name="questions[0][options][d]"
+                                            placeholder="Enter option D" maxlength="300" required>
 
                                     </div>
 
@@ -843,10 +620,7 @@
 
                     <div class="exam-question-editor-note">
 
-                        <i
-                            class="bi bi-info-circle"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="bi bi-info-circle" aria-hidden="true"></i>
 
                         <p>
                             The Add Question and Remove buttons will be
@@ -862,10 +636,7 @@
 
                     <div class="exam-form-actions-message">
 
-                        <i
-                            class="bi bi-shield-check"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="bi bi-shield-check" aria-hidden="true"></i>
 
                         <div>
 
@@ -881,23 +652,13 @@
 
                     <div class="exam-form-actions">
 
-                        <a
-                            href="exams.html"
-                            class="exam-form-cancel-btn"
-                        >
+                        <a href="exams.html" class="exam-form-cancel-btn">
                             Cancel
                         </a>
 
-                        <button
-                            type="submit"
-                            class="primary-btn exam-form-save-btn"
-                            id="save-exam-btn"
-                        >
+                        <button type="submit" class="primary-btn exam-form-save-btn" id="save-exam-btn">
 
-                            <i
-                                class="bi bi-check-lg"
-                                aria-hidden="true"
-                            ></i>
+                            <i class="bi bi-check-lg" aria-hidden="true"></i>
 
                             <span>Save Exam</span>
 
@@ -915,7 +676,7 @@
 
     <!-- Shared layout scripts only -->
     <script src="../../js/components/teacher-topbar.js"></script>
-    <script src="../../js/components/teacher-sidebar.js"></script>
-
+    <script type="module" src="../../js/components/teacher-sidebar.js">
+    </script
 </body>
 </html>

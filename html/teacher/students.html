@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Manage student accounts in the Looply teacher dashboard." >
+    <meta name="description" content="Manage student accounts in the Looply teacher dashboard.">
     <title>Looply | Students</title>
-    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../css/base.css">
     <link rel="stylesheet" href="../../css/dashboard.css">
@@ -16,7 +17,7 @@
     <header id="teacher-topbar-root"></header>
     <aside id="teacher-sidebar-root"></aside>
 
-    <div id="teacher-sidebar-overlay" class="teacher-sidebar-overlay" ></div>
+    <div id="teacher-sidebar-overlay" class="teacher-sidebar-overlay"></div>
 
     <main class="teacher-main">
         <div class="teacher-content students-page">
@@ -24,19 +25,13 @@
                 <div class="students-header-content">
                     <span class="dashboard-page-label"> Student Management</span>
                     <h1 class="dashboard-page-title">Students</h1>
-                    <p class="dashboard-page-description">Manage student accounts, personal information, and platform access.</p>
+                    <p class="dashboard-page-description">Manage student accounts, personal information, and platform
+                        access.</p>
                 </div>
 
-                <button
-                    type="button"
-                    class="primary-btn add-student-btn"
-                    data-bs-toggle="modal"
-                    data-bs-target="#addStudentModal"
-                >
-                    <i
-                        class="bi bi-person-plus"
-                        aria-hidden="true"
-                    ></i>
+                <button type="button" class="primary-btn add-student-btn" data-bs-toggle="modal"
+                    data-bs-target="#addStudentModal">
+                    <i class="bi bi-person-plus" aria-hidden="true"></i>
 
                     <span>Add Student</span>
                 </button>
@@ -55,7 +50,7 @@
                             <h2>All Students</h2>
 
                             <span class="students-count" id="total-students-badge">
-                                   -- students
+                                -- students
                             </span>
 
                         </div>
@@ -68,27 +63,14 @@
                     <div class="students-toolbar">
 
                         <div class="student-search">
-                            <i
-                                class="bi bi-search"
-                                aria-hidden="true"
-                            ></i>
+                            <i class="bi bi-search" aria-hidden="true"></i>
 
-                            <input
-                                type="search"
-                                id="student-search"
-                                placeholder="Search students..."
-                                aria-label="Search students"
-                            >
+                            <input type="search" id="student-search" placeholder="Search students..."
+                                aria-label="Search students">
                         </div>
 
-                        <button
-                            type="button"
-                            class="students-filter-btn"
-                        >
-                            <i
-                                class="bi bi-funnel"
-                                aria-hidden="true"
-                            ></i>
+                        <button type="button" class="students-filter-btn">
+                            <i class="bi bi-funnel" aria-hidden="true"></i>
 
                             <span>Filter</span>
                         </button>
@@ -128,13 +110,8 @@
 
     </main>
 
-    <div
-        class="modal fade student-modal"
-        id="addStudentModal"
-        tabindex="-1"
-        aria-labelledby="addStudentModalTitle"
-        aria-hidden="true"
-    >
+    <div class="modal fade student-modal" id="addStudentModal" tabindex="-1" aria-labelledby="addStudentModalTitle"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
 
             <div class="modal-content">
@@ -147,10 +124,7 @@
                             Student Account
                         </span>
 
-                        <h2
-                            class="modal-title"
-                            id="addStudentModalTitle"
-                        >
+                        <h2 class="modal-title" id="addStudentModalTitle">
                             Add New Student
                         </h2>
 
@@ -160,26 +134,15 @@
                         </p>
                     </div>
 
-                    <button
-                        type="button"
-                        class="student-modal-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close modal"
-                    >
-                        <i
-                            class="bi bi-x-lg"
-                            aria-hidden="true"
-                        ></i>
+                    <button type="button" class="student-modal-close" data-bs-dismiss="modal" aria-label="Close modal">
+                        <i class="bi bi-x-lg" aria-hidden="true"></i>
                     </button>
 
                 </div>
 
                 <div class="modal-body student-modal-body">
 
-                    <form
-                        class="student-form"
-                        id="student-form"
-                    >
+                    <form class="student-form" id="student-form">
 
                         <div class="student-form-grid">
 
@@ -189,27 +152,15 @@
                                     Full Name
                                 </label>
 
-                                <input
-                                    type="text"
-                                    id="student-full-name"
-                                    name="fullName"
-                                    placeholder="Enter full name"
-                                >
+                                <input type="text" id="student-full-name" name="fullName" placeholder="Enter full name">
                             </div>
                             <div class="student-form-group">
                                 <label for="student-gender">
                                     Gender
                                 </label>
 
-                                <select
-                                    id="student-gender"
-                                    name="gender"
-                                >
-                                    <option
-                                        value=""
-                                        selected
-                                        disabled
-                                    >
+                                <select id="student-gender" name="gender">
+                                    <option value="" selected disabled>
                                         Select gender
                                     </option>
 
@@ -228,12 +179,8 @@
                                     National ID
                                 </label>
 
-                                <input
-                                    type="text"
-                                    id="student-national-id"
-                                    name="nationalId"
-                                    placeholder="Enter national ID"
-                                >
+                                <input type="text" id="student-national-id" name="nationalId"
+                                    placeholder="Enter national ID">
                             </div>
 
 
@@ -242,12 +189,7 @@
                                     Phone Number
                                 </label>
 
-                                <input
-                                    type="tel"
-                                    id="student-phone"
-                                    name="phone"
-                                    placeholder="07X XXX XXXX"
-                                >
+                                <input type="tel" id="student-phone" name="phone" placeholder="07X XXX XXXX">
                             </div>
 
                             <div class="student-form-group">
@@ -255,12 +197,8 @@
                                     Username
                                 </label>
 
-                                <input
-                                    type="text"
-                                    id="student-username"
-                                    name="username"
-                                    placeholder="Create a username"
-                                >
+                                <input type="text" id="student-username" name="username"
+                                    placeholder="Create a username">
                             </div>
 
                             <div class="student-form-group">
@@ -270,21 +208,11 @@
 
                                 <div class="student-password-field">
 
-                                    <input
-                                        type="password"
-                                        id="student-password"
-                                        name="password"
-                                        placeholder="Create a password"
-                                    >
+                                    <input type="password" id="student-password" name="password"
+                                        placeholder="Create a password">
 
-                                    <button
-                                        type="button"
-                                        aria-label="Show password"
-                                    >
-                                        <i
-                                            class="bi bi-eye"
-                                            aria-hidden="true"
-                                        ></i>
+                                    <button type="button" aria-label="Show password">
+                                        <i class="bi bi-eye" aria-hidden="true"></i>
                                     </button>
 
                                 </div>
@@ -294,10 +222,7 @@
 
                         <div class="student-form-note">
 
-                            <i
-                                class="bi bi-info-circle"
-                                aria-hidden="true"
-                            ></i>
+                            <i class="bi bi-info-circle" aria-hidden="true"></i>
 
                             <p>
                                 The student will use the username and
@@ -312,22 +237,12 @@
 
                 <div class="modal-footer student-modal-footer">
 
-                    <button
-                        type="button"
-                        class="secondary-btn"
-                        data-bs-dismiss="modal"
-                    >
+                    <button type="button" class="secondary-btn" data-bs-dismiss="modal">
                         Cancel
                     </button>
 
-                    <button
-                        type="button"
-                        class="primary-btn save-student-btn"
-                    >
-                        <i
-                            class="bi bi-person-check"
-                            aria-hidden="true"
-                        ></i>
+                    <button type="button" class="primary-btn save-student-btn">
+                        <i class="bi bi-person-check" aria-hidden="true"></i>
 
                         <span>Save Student</span>
                     </button>
@@ -343,7 +258,8 @@
 
     <!-- Shared Teacher Components -->
     <script src="../../js/components/teacher-topbar.js"></script>
-    <script src="../../js/components/teacher-sidebar.js"></script>
+    <script type="module" src="../../js/components/teacher-sidebar.js">
+    </script
 
 </body>
 </html>

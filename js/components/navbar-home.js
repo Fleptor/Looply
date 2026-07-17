@@ -210,7 +210,7 @@ export function renderPublicNavbar(
         );
     }
 
-    /
+    
     function toggleMobileMenu() {
         const isOpen =
             navigation.classList.toggle(

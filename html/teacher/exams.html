@@ -1,39 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Manage programming exams in the Looply teacher dashboard."
-    >
+    <meta name="description" content="Manage programming exams in the Looply teacher dashboard.">
 
     <title>Looply | Exams</title>
 
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <link
-        rel="stylesheet"
-        href="../../css/base.css"
-    >
+    <link rel="stylesheet" href="../../css/base.css">
 
-    <link
-        rel="stylesheet"
-        href="../../css/dashboard.css"
-    >
+    <link rel="stylesheet" href="../../css/dashboard.css">
 
-    <link
-        rel="stylesheet"
-        href="../../css/exam.css"
-    >
+    <link rel="stylesheet" href="../../css/exam.css">
 </head>
 
 <body class="teacher-page">
@@ -45,10 +28,7 @@
     <aside id="teacher-sidebar-root"></aside>
 
     <!-- Sidebar overlay for mobile -->
-    <div
-        id="teacher-sidebar-overlay"
-        class="teacher-sidebar-overlay"
-    ></div>
+    <div id="teacher-sidebar-overlay" class="teacher-sidebar-overlay"></div>
 
     <main class="teacher-main">
 
@@ -74,14 +54,8 @@
 
                 </div>
 
-                <a
-                    href="exam-form.html"
-                    class="primary-btn create-exam-btn"
-                >
-                    <i
-                        class="bi bi-plus-lg"
-                        aria-hidden="true"
-                    ></i>
+                <a href="exam-form.html" class="primary-btn create-exam-btn">
+                    <i class="bi bi-plus-lg" aria-hidden="true"></i>
 
                     <span>Create Exam</span>
                 </a>
@@ -117,50 +91,27 @@
 
                         <div class="exams-search">
 
-                            <i
-                                class="bi bi-search"
-                                aria-hidden="true"
-                            ></i>
+                            <i class="bi bi-search" aria-hidden="true"></i>
 
-                            <input
-                                type="search"
-                                id="teacher-exam-search"
-                                placeholder="Search exams..."
-                                aria-label="Search exams"
-                                autocomplete="off"
-                            >
+                            <input type="search" id="teacher-exam-search" placeholder="Search exams..."
+                                aria-label="Search exams" autocomplete="off">
 
                         </div>
 
-                        <div
-                            class="exams-filter"
-                            aria-label="Filter exams by status"
-                        >
+                        <div class="exams-filter" aria-label="Filter exams by status">
 
-                            <button
-                                type="button"
-                                class="exams-filter-btn active"
-                                data-exam-filter="all"
-                                aria-pressed="true"
-                            >
+                            <button type="button" class="exams-filter-btn active" data-exam-filter="all"
+                                aria-pressed="true">
                                 All
                             </button>
 
-                            <button
-                                type="button"
-                                class="exams-filter-btn"
-                                data-exam-filter="active"
-                                aria-pressed="false"
-                            >
+                            <button type="button" class="exams-filter-btn" data-exam-filter="active"
+                                aria-pressed="false">
                                 Active
                             </button>
 
-                            <button
-                                type="button"
-                                class="exams-filter-btn"
-                                data-exam-filter="inactive"
-                                aria-pressed="false"
-                            >
+                            <button type="button" class="exams-filter-btn" data-exam-filter="inactive"
+                                aria-pressed="false">
                                 Inactive
                             </button>
 
@@ -189,12 +140,8 @@
                         <tbody id="teacher-exams-body">
 
                             <!-- Exam 1 -->
-                            <tr
-                                data-exam-row
-                                data-exam-id="exam-1"
-                                data-exam-title="javascript fundamentals"
-                                data-exam-status="active"
-                            >
+                            <tr data-exam-row data-exam-id="exam-1" data-exam-title="javascript fundamentals"
+                                data-exam-status="active">
 
                                 <td>
 
@@ -202,10 +149,7 @@
 
                                         <span class="exam-icon">
 
-                                            <i
-                                                class="bi bi-braces"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="bi bi-braces" aria-hidden="true"></i>
 
                                         </span>
 
@@ -269,65 +213,33 @@
 
                                     <div class="exam-actions">
 
-                                        <a
-                                            href="exam-details.html"
-                                            class="exam-action-btn"
-                                            title="View exam"
-                                            aria-label="View JavaScript Fundamentals exam"
-                                        >
-                                            <i
-                                                class="bi bi-eye"
-                                                aria-hidden="true"
-                                            ></i>
+                                        <a href="exam-details.html" class="exam-action-btn" title="View exam"
+                                            aria-label="View JavaScript Fundamentals exam">
+                                            <i class="bi bi-eye" aria-hidden="true"></i>
                                         </a>
 
-                                        <a
-                                            href="exam-form.html"
-                                            class="exam-action-btn"
-                                            title="Edit exam"
-                                            aria-label="Edit JavaScript Fundamentals exam"
-                                        >
-                                            <i
-                                                class="bi bi-pencil"
-                                                aria-hidden="true"
-                                            ></i>
+                                        <a href="exam-form.html" class="exam-action-btn" title="Edit exam"
+                                            aria-label="Edit JavaScript Fundamentals exam">
+                                            <i class="bi bi-pencil" aria-hidden="true"></i>
                                         </a>
 
-                                        <button
-                                            type="button"
-                                            class="
+                                        <button type="button" class="
                                                 exam-toggle-btn
                                                 exam-deactivate-btn
-                                            "
-                                            data-exam-toggle
-                                            data-exam-id="exam-1"
-                                            data-next-status="inactive"
+                                            " data-exam-toggle data-exam-id="exam-1" data-next-status="inactive"
                                             title="Deactivate exam"
-                                            aria-label="Deactivate JavaScript Fundamentals exam"
-                                        >
-                                            <i
-                                                class="bi bi-pause-circle"
-                                                aria-hidden="true"
-                                            ></i>
+                                            aria-label="Deactivate JavaScript Fundamentals exam">
+                                            <i class="bi bi-pause-circle" aria-hidden="true"></i>
 
                                             <span>Deactivate</span>
                                         </button>
 
-                                        <button
-                                            type="button"
-                                            class="
+                                        <button type="button" class="
                                                 exam-action-btn
                                                 exam-delete-btn
-                                            "
-                                            data-delete-exam
-                                            data-exam-id="exam-1"
-                                            title="Delete exam"
-                                            aria-label="Delete JavaScript Fundamentals exam"
-                                        >
-                                            <i
-                                                class="bi bi-trash"
-                                                aria-hidden="true"
-                                            ></i>
+                                            " data-delete-exam data-exam-id="exam-1" title="Delete exam"
+                                            aria-label="Delete JavaScript Fundamentals exam">
+                                            <i class="bi bi-trash" aria-hidden="true"></i>
                                         </button>
 
                                     </div>
@@ -337,12 +249,8 @@
                             </tr>
 
                             <!-- Exam 2 -->
-                            <tr
-                                data-exam-row
-                                data-exam-id="exam-2"
-                                data-exam-title="html css essentials"
-                                data-exam-status="inactive"
-                            >
+                            <tr data-exam-row data-exam-id="exam-2" data-exam-title="html css essentials"
+                                data-exam-status="inactive">
 
                                 <td>
 
@@ -350,10 +258,7 @@
 
                                         <span class="exam-icon">
 
-                                            <i
-                                                class="bi bi-filetype-html"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="bi bi-filetype-html" aria-hidden="true"></i>
 
                                         </span>
 
@@ -417,65 +322,32 @@
 
                                     <div class="exam-actions">
 
-                                        <a
-                                            href="exam-details.html"
-                                            class="exam-action-btn"
-                                            title="View exam"
-                                            aria-label="View HTML and CSS Essentials exam"
-                                        >
-                                            <i
-                                                class="bi bi-eye"
-                                                aria-hidden="true"
-                                            ></i>
+                                        <a href="exam-details.html" class="exam-action-btn" title="View exam"
+                                            aria-label="View HTML and CSS Essentials exam">
+                                            <i class="bi bi-eye" aria-hidden="true"></i>
                                         </a>
 
-                                        <a
-                                            href="exam-form.html"
-                                            class="exam-action-btn"
-                                            title="Edit exam"
-                                            aria-label="Edit HTML and CSS Essentials exam"
-                                        >
-                                            <i
-                                                class="bi bi-pencil"
-                                                aria-hidden="true"
-                                            ></i>
+                                        <a href="exam-form.html" class="exam-action-btn" title="Edit exam"
+                                            aria-label="Edit HTML and CSS Essentials exam">
+                                            <i class="bi bi-pencil" aria-hidden="true"></i>
                                         </a>
 
-                                        <button
-                                            type="button"
-                                            class="
+                                        <button type="button" class="
                                                 exam-toggle-btn
                                                 exam-activate-btn
-                                            "
-                                            data-exam-toggle
-                                            data-exam-id="exam-2"
-                                            data-next-status="active"
-                                            title="Activate exam"
-                                            aria-label="Activate HTML and CSS Essentials exam"
-                                        >
-                                            <i
-                                                class="bi bi-play-circle"
-                                                aria-hidden="true"
-                                            ></i>
+                                            " data-exam-toggle data-exam-id="exam-2" data-next-status="active"
+                                            title="Activate exam" aria-label="Activate HTML and CSS Essentials exam">
+                                            <i class="bi bi-play-circle" aria-hidden="true"></i>
 
                                             <span>Activate</span>
                                         </button>
 
-                                        <button
-                                            type="button"
-                                            class="
+                                        <button type="button" class="
                                                 exam-action-btn
                                                 exam-delete-btn
-                                            "
-                                            data-delete-exam
-                                            data-exam-id="exam-2"
-                                            title="Delete exam"
-                                            aria-label="Delete HTML and CSS Essentials exam"
-                                        >
-                                            <i
-                                                class="bi bi-trash"
-                                                aria-hidden="true"
-                                            ></i>
+                                            " data-delete-exam data-exam-id="exam-2" title="Delete exam"
+                                            aria-label="Delete HTML and CSS Essentials exam">
+                                            <i class="bi bi-trash" aria-hidden="true"></i>
                                         </button>
 
                                     </div>
@@ -485,12 +357,8 @@
                             </tr>
 
                             <!-- Exam 3 -->
-                            <tr
-                                data-exam-row
-                                data-exam-id="exam-3"
-                                data-exam-title="programming basics"
-                                data-exam-status="inactive"
-                            >
+                            <tr data-exam-row data-exam-id="exam-3" data-exam-title="programming basics"
+                                data-exam-status="inactive">
 
                                 <td>
 
@@ -498,10 +366,7 @@
 
                                         <span class="exam-icon">
 
-                                            <i
-                                                class="bi bi-code-square"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="bi bi-code-square" aria-hidden="true"></i>
 
                                         </span>
 
@@ -565,65 +430,32 @@
 
                                     <div class="exam-actions">
 
-                                        <a
-                                            href="exam-details.html"
-                                            class="exam-action-btn"
-                                            title="View exam"
-                                            aria-label="View Programming Basics exam"
-                                        >
-                                            <i
-                                                class="bi bi-eye"
-                                                aria-hidden="true"
-                                            ></i>
+                                        <a href="exam-details.html" class="exam-action-btn" title="View exam"
+                                            aria-label="View Programming Basics exam">
+                                            <i class="bi bi-eye" aria-hidden="true"></i>
                                         </a>
 
-                                        <a
-                                            href="exam-form.html"
-                                            class="exam-action-btn"
-                                            title="Edit exam"
-                                            aria-label="Edit Programming Basics exam"
-                                        >
-                                            <i
-                                                class="bi bi-pencil"
-                                                aria-hidden="true"
-                                            ></i>
+                                        <a href="exam-form.html" class="exam-action-btn" title="Edit exam"
+                                            aria-label="Edit Programming Basics exam">
+                                            <i class="bi bi-pencil" aria-hidden="true"></i>
                                         </a>
 
-                                        <button
-                                            type="button"
-                                            class="
+                                        <button type="button" class="
                                                 exam-toggle-btn
                                                 exam-activate-btn
-                                            "
-                                            data-exam-toggle
-                                            data-exam-id="exam-3"
-                                            data-next-status="active"
-                                            title="Activate exam"
-                                            aria-label="Activate Programming Basics exam"
-                                        >
-                                            <i
-                                                class="bi bi-play-circle"
-                                                aria-hidden="true"
-                                            ></i>
+                                            " data-exam-toggle data-exam-id="exam-3" data-next-status="active"
+                                            title="Activate exam" aria-label="Activate Programming Basics exam">
+                                            <i class="bi bi-play-circle" aria-hidden="true"></i>
 
                                             <span>Activate</span>
                                         </button>
 
-                                        <button
-                                            type="button"
-                                            class="
+                                        <button type="button" class="
                                                 exam-action-btn
                                                 exam-delete-btn
-                                            "
-                                            data-delete-exam
-                                            data-exam-id="exam-3"
-                                            title="Delete exam"
-                                            aria-label="Delete Programming Basics exam"
-                                        >
-                                            <i
-                                                class="bi bi-trash"
-                                                aria-hidden="true"
-                                            ></i>
+                                            " data-delete-exam data-exam-id="exam-3" title="Delete exam"
+                                            aria-label="Delete Programming Basics exam">
+                                            <i class="bi bi-trash" aria-hidden="true"></i>
                                         </button>
 
                                     </div>
@@ -633,12 +465,8 @@
                             </tr>
 
                             <!-- Exam 4 -->
-                            <tr
-                                data-exam-row
-                                data-exam-id="exam-4"
-                                data-exam-title="database concepts"
-                                data-exam-status="active"
-                            >
+                            <tr data-exam-row data-exam-id="exam-4" data-exam-title="database concepts"
+                                data-exam-status="active">
 
                                 <td>
 
@@ -646,10 +474,7 @@
 
                                         <span class="exam-icon">
 
-                                            <i
-                                                class="bi bi-database"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="bi bi-database" aria-hidden="true"></i>
 
                                         </span>
 
@@ -713,65 +538,32 @@
 
                                     <div class="exam-actions">
 
-                                        <a
-                                            href="exam-details.html"
-                                            class="exam-action-btn"
-                                            title="View exam"
-                                            aria-label="View Database Concepts exam"
-                                        >
-                                            <i
-                                                class="bi bi-eye"
-                                                aria-hidden="true"
-                                            ></i>
+                                        <a href="exam-details.html" class="exam-action-btn" title="View exam"
+                                            aria-label="View Database Concepts exam">
+                                            <i class="bi bi-eye" aria-hidden="true"></i>
                                         </a>
 
-                                        <a
-                                            href="exam-form.html"
-                                            class="exam-action-btn"
-                                            title="Edit exam"
-                                            aria-label="Edit Database Concepts exam"
-                                        >
-                                            <i
-                                                class="bi bi-pencil"
-                                                aria-hidden="true"
-                                            ></i>
+                                        <a href="exam-form.html" class="exam-action-btn" title="Edit exam"
+                                            aria-label="Edit Database Concepts exam">
+                                            <i class="bi bi-pencil" aria-hidden="true"></i>
                                         </a>
 
-                                        <button
-                                            type="button"
-                                            class="
+                                        <button type="button" class="
                                                 exam-toggle-btn
                                                 exam-deactivate-btn
-                                            "
-                                            data-exam-toggle
-                                            data-exam-id="exam-4"
-                                            data-next-status="inactive"
-                                            title="Deactivate exam"
-                                            aria-label="Deactivate Database Concepts exam"
-                                        >
-                                            <i
-                                                class="bi bi-pause-circle"
-                                                aria-hidden="true"
-                                            ></i>
+                                            " data-exam-toggle data-exam-id="exam-4" data-next-status="inactive"
+                                            title="Deactivate exam" aria-label="Deactivate Database Concepts exam">
+                                            <i class="bi bi-pause-circle" aria-hidden="true"></i>
 
                                             <span>Deactivate</span>
                                         </button>
 
-                                        <button
-                                            type="button"
-                                            class="
+                                        <button type="button" class="
                                                 exam-action-btn
                                                 exam-delete-btn
-                                            "
-                                            data-delete-exam
-                                            data-exam-id="exam-4"
-                                            title="Delete exam"
-                                            aria-label="Delete Database Concepts exam"
-                                        >
-                                            <i
-                                                class="bi bi-trash"
-                                                aria-hidden="true"
-                                            ></i>
+                                            " data-delete-exam data-exam-id="exam-4" title="Delete exam"
+                                            aria-label="Delete Database Concepts exam">
+                                            <i class="bi bi-trash" aria-hidden="true"></i>
                                         </button>
 
                                     </div>
@@ -794,7 +586,8 @@
 
     <!-- Shared layout scripts only -->
     <script src="../../js/components/teacher-topbar.js"></script>
-    <script src="../../js/components/teacher-sidebar.js"></script>
+    <script type="module" src="../../js/components/teacher-sidebar.js">
+    </script
 
 </body>
 </html>
