@@ -116,22 +116,32 @@ export function logout(options = {}) {
 
 export function getCurrentSession() {
     const session = readCurrentSessionValue();
+    const userId = normalizeText(session?.userId);
+    const loginAt = normalizeText(session?.loginAt);
+    const loginTime = new Date(loginAt).getTime();
 
     const isValidSession =
         session &&
         typeof session === "object" &&
-        normalizeText(session.userId) !== "" &&
-        isSupportedRole(session.role);
+        !Array.isArray(session) &&
+        userId !== "" &&
+        isSupportedRole(session.role) &&
+        loginAt !== "" &&
+        Number.isFinite(loginTime);
 
     if (!isValidSession) {
         if (session !== null) {
-            removeCurrentSessionValue();
+            clearCurrentSession();
         }
 
         return null;
     }
 
-    return { ...session };
+    return {
+        userId,
+        role: session.role,
+        loginAt
+    };
 }
 
 

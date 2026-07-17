@@ -105,10 +105,19 @@
                 <button
                   type="button"
                   class="exams-filter-btn"
-                  data-exam-filter="inactive"
+                  data-exam-filter="draft"
                   aria-pressed="false"
                 >
-                  Inactive
+                  Draft
+                </button>
+
+                <button
+                  type="button"
+                  class="exams-filter-btn"
+                  data-exam-filter="closed"
+                  aria-pressed="false"
+                >
+                  Closed
                 </button>
               </div>
             </div>
@@ -199,7 +208,7 @@
                         class="exam-toggle-btn exam-deactivate-btn"
                         data-exam-toggle
                         data-exam-id="exam-1"
-                        data-next-status="inactive"
+                        data-next-status="draft"
                         title="Deactivate exam"
                         aria-label="Deactivate JavaScript Fundamentals exam"
                       >
@@ -227,7 +236,7 @@
                   data-exam-row
                   data-exam-id="exam-2"
                   data-exam-title="html css essentials"
-                  data-exam-status="inactive"
+                  data-exam-status="draft"
                 >
                   <td>
                     <div class="exam-identity">
@@ -260,9 +269,7 @@
                   </td>
 
                   <td>
-                    <span class="exam-status exam-status-inactive">
-                      Inactive
-                    </span>
+                    <span class="exam-status exam-status-draft"> Draft </span>
                   </td>
 
                   <td>
@@ -322,7 +329,7 @@
                   data-exam-row
                   data-exam-id="exam-3"
                   data-exam-title="programming basics"
-                  data-exam-status="inactive"
+                  data-exam-status="draft"
                 >
                   <td>
                     <div class="exam-identity">
@@ -355,9 +362,7 @@
                   </td>
 
                   <td>
-                    <span class="exam-status exam-status-inactive">
-                      Inactive
-                    </span>
+                    <span class="exam-status exam-status-draft"> Draft </span>
                   </td>
 
                   <td>
@@ -482,7 +487,7 @@
                         class="exam-toggle-btn exam-deactivate-btn"
                         data-exam-toggle
                         data-exam-id="exam-4"
-                        data-next-status="inactive"
+                        data-next-status="draft"
                         title="Deactivate exam"
                         aria-label="Deactivate Database Concepts exam"
                       >

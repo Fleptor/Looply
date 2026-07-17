@@ -35,6 +35,13 @@ export const ATTEMPT_STATUS = Object.freeze({
     SUBMITTED: "submitted"
 });
 
+export const QUESTION_TYPES = Object.freeze({
+    MULTIPLE_CHOICE: "multiple-choice",
+    TRUE_FALSE: "true-false",
+    SHORT_ANSWER: "short-answer",
+    CODE_OUTPUT: "code-output"
+});
+
 export const ROUTES = Object.freeze({
     HOME: createProjectUrl("html/home.html"),
     CONTACT: createProjectUrl("html/contact-about.html"),

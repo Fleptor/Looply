@@ -224,6 +224,10 @@ function initializeLoginPage() {
 
         redirectToDashboard(user);
     } catch (error) {
+        setSubmittingState(
+    submitButton,
+    false
+);
         await displayLoginError(
             messageElement,
             error.message ||

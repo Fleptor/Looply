@@ -1,45 +1,63 @@
+import { API_CONFIG } from "./config.js";
+
 const QUOTE_API_URL =
     "https://dummyjson.com/quotes/random";
 
-/**
- * يجلب اقتباسًا عشوائيًا من DummyJSON.
- *
- * @returns {Promise<{ quote: string, author: string }>}
- */
+
 export async function fetchRandomQuote() {
-    const response = await fetch(QUOTE_API_URL, {
-        headers: {
-            Accept: "application/json"
+    const controller = new AbortController();
+
+    const timeoutId = window.setTimeout(
+        () => controller.abort(),
+        API_CONFIG.timeoutMs
+    );
+
+    try {
+        const response = await fetch(QUOTE_API_URL, {
+            headers: {
+                Accept: "application/json"
+            },
+            signal: controller.signal
+        });
+
+        if (!response.ok) {
+            throw new Error(
+                `Quote request failed with status ${response.status}.`
+            );
         }
-    });
 
-    if (!response.ok) {
-        throw new Error(
-            `Quote request failed with status ${response.status}.`
-        );
+        const data = await response.json();
+
+        if (
+            !data ||
+            typeof data.quote !== "string" ||
+            typeof data.author !== "string" ||
+            data.quote.trim() === "" ||
+            data.author.trim() === ""
+        ) {
+            throw new Error(
+                "The quote API returned invalid data."
+            );
+        }
+
+        return {
+            quote: data.quote.trim(),
+            author: data.author.trim()
+        };
+    } catch (error) {
+        if (error?.name === "AbortError") {
+            throw new Error(
+                "The quote request timed out."
+            );
+        }
+
+        throw error;
+    } finally {
+        window.clearTimeout(timeoutId);
     }
-
-    const data = await response.json();
-
-    if (
-        !data ||
-        typeof data.quote !== "string" ||
-        typeof data.author !== "string"
-    ) {
-        throw new Error(
-            "The quote API returned invalid data."
-        );
-    }
-
-    return {
-        quote: data.quote.trim(),
-        author: data.author.trim()
-    };
 }
 
-/**
- * يربط قسم الاقتباس الموجود في الصفحة مع الـAPI.
- */
+
 function initializeQuoteSection() {
     const quoteText =
         document.getElementById("quoteText");
@@ -53,10 +71,7 @@ function initializeQuoteSection() {
     const quoteError =
         document.getElementById("quoteError");
 
-    /*
-     * يمنع حدوث خطأ إذا تم تحميل الملف
-     * في صفحة لا تحتوي قسم الاقتباس.
-     */
+
     if (
         !quoteText ||
         !quoteAuthor ||

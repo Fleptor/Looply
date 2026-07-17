@@ -1,5 +1,17 @@
+import {
+    EXAM_STATUS,
+    QUESTION_TYPES
+} from "./config.js";
+
 import { normalizeText } from "./utils.js";
 
+const ALLOWED_EXAM_STATUSES = new Set(
+    Object.values(EXAM_STATUS)
+);
+
+const ALLOWED_QUESTION_TYPES = new Set(
+    Object.values(QUESTION_TYPES)
+);
 
 function createValidationResult(errors) {
     return {
@@ -106,29 +118,29 @@ export function validateLoginForm(data = {}) {
 
 export function validateContactForm(data = {}) {
     const errors = {};
-    const fullName = normalizeText(data.fullName ?? data.name);
+    const firstName = normalizeText(data.firstName);
+    const lastName = normalizeText(data.lastName);
     const email = normalizeText(data.email);
-    const subject = normalizeText(data.subject);
     const message = normalizeText(data.message);
 
-    if (!isRequired(fullName)) {
-        errors.fullName = "Full name is required.";
-    } else if (fullName.length < 3) {
-        errors.fullName =
-            "Full name must contain at least 3 characters.";
+    if (!isRequired(firstName)) {
+        errors.firstName = "First name is required.";
+    } else if (firstName.length < 2) {
+        errors.firstName =
+            "First name must contain at least 2 characters.";
+    }
+
+    if (!isRequired(lastName)) {
+        errors.lastName = "Last name is required.";
+    } else if (lastName.length < 2) {
+        errors.lastName =
+            "Last name must contain at least 2 characters.";
     }
 
     if (!isRequired(email)) {
         errors.email = "Email is required.";
     } else if (!isValidEmail(email)) {
         errors.email = "Enter a valid email address.";
-    }
-
-    if (!isRequired(subject)) {
-        errors.subject = "Subject is required.";
-    } else if (subject.length < 3) {
-        errors.subject =
-            "Subject must contain at least 3 characters.";
     }
 
     if (!isRequired(message)) {
@@ -231,6 +243,7 @@ export function validateExamForm(data = {}) {
     const startAt = data.startAt;
     const endAt = data.endAt;
     const durationMinutes = data.durationMinutes;
+    const status = normalizeText(data.status).toLowerCase();
 
     if (!isRequired(title)) {
         errors.title = "Exam title is required.";
@@ -271,7 +284,9 @@ export function validateExamForm(data = {}) {
         errors.durationMinutes =
             "Exam duration must be a positive whole number.";
     }
-
+    if (!ALLOWED_EXAM_STATUSES.has(status)) {
+    errors.status = "Select a valid exam status.";
+}
     return createValidationResult(errors);
 }
 
@@ -279,23 +294,18 @@ export function validateExamForm(data = {}) {
 export function validateQuestionForm(data = {}) {
     const errors = {};
     const text = normalizeText(data.text);
-    const type = normalizeText(data.type);
+    const type = normalizeText(data.type).toLowerCase();
     const points = data.points;
     const options = Array.isArray(data.options)
         ? data.options
         : [];
     const correctAnswer = normalizeText(data.correctAnswer);
 
-    const allowedTypes = [
-        "multiple-choice",
-        "true-false"
-    ];
-
     if (!isRequired(text)) {
         errors.text = "Question text is required.";
     }
 
-    if (!allowedTypes.includes(type)) {
+    if (!ALLOWED_QUESTION_TYPES.has(type)) {
         errors.type = "Select a valid question type.";
     }
 
@@ -304,14 +314,32 @@ export function validateQuestionForm(data = {}) {
             "Question points must be greater than zero.";
     }
 
-    if (type === "multiple-choice") {
+    if (type === QUESTION_TYPES.MULTIPLE_CHOICE) {
         const validOptions = options
-            .map((option) => {
+            .map((option, index) => {
                 if (typeof option === "string") {
-                    return normalizeText(option);
+                    const optionText = normalizeText(option);
+
+                    return optionText
+                        ? {
+                            id: String(index + 1),
+                            text: optionText
+                        }
+                        : null;
                 }
 
-                return normalizeText(option?.text);
+                const optionText = normalizeText(option?.text);
+
+                if (!optionText) {
+                    return null;
+                }
+
+                return {
+                    id:
+                        normalizeText(option?.id) ||
+                        String(index + 1),
+                    text: optionText
+                };
             })
             .filter(Boolean);
 
@@ -323,15 +351,35 @@ export function validateQuestionForm(data = {}) {
         if (!isRequired(correctAnswer)) {
             errors.correctAnswer =
                 "Select the correct answer.";
+        } else if (
+            !validOptions.some(
+                (option) => option.id === correctAnswer
+            )
+        ) {
+            errors.correctAnswer =
+                "The correct answer must match one option.";
         }
     }
 
     if (
-        type === "true-false" &&
-        !["true", "false"].includes(correctAnswer.toLowerCase())
+        type === QUESTION_TYPES.TRUE_FALSE &&
+        !["true", "false"].includes(
+            correctAnswer.toLowerCase()
+        )
     ) {
         errors.correctAnswer =
             "The correct answer must be true or false.";
+    }
+
+    if (
+        [
+            QUESTION_TYPES.SHORT_ANSWER,
+            QUESTION_TYPES.CODE_OUTPUT
+        ].includes(type) &&
+        !isRequired(correctAnswer)
+    ) {
+        errors.correctAnswer =
+            "The correct answer is required.";
     }
 
     return createValidationResult(errors);

@@ -464,17 +464,6 @@ export function isSeeded() {
 export function seedInitialData(
     { force = false } = {}
 ) {
-    if (!force && isSeeded()) {
-        return {
-            seeded: false,
-            usersWritten: false,
-            examsWritten: false,
-            attemptsWritten: false
-        };
-    }
-
-    const referenceDate = new Date();
-
     const usersWritten =
         shouldSeedCollection(
             STORAGE_KEYS.USERS,
@@ -492,6 +481,23 @@ export function seedInitialData(
             STORAGE_KEYS.ATTEMPTS,
             force
         );
+
+    if (
+        !force &&
+        isSeeded() &&
+        !usersWritten &&
+        !examsWritten &&
+        !attemptsWritten
+    ) {
+        return {
+            seeded: false,
+            usersWritten: false,
+            examsWritten: false,
+            attemptsWritten: false
+        };
+    }
+
+    const referenceDate = new Date();
 
     if (usersWritten) {
         writeStorage(

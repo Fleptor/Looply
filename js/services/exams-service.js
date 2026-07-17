@@ -1,5 +1,6 @@
 import {
     EXAM_STATUS,
+    QUESTION_TYPES,
     STORAGE_KEYS
 } from "../core/config.js";
 
@@ -17,12 +18,9 @@ const ALLOWED_EXAM_STATUSES = new Set(
     Object.values(EXAM_STATUS)
 );
 
-const ALLOWED_QUESTION_TYPES = new Set([
-    "multiple-choice",
-    "true-false",
-    "short-answer",
-    "code-output"
-]);
+const ALLOWED_QUESTION_TYPES = new Set(
+    Object.values(QUESTION_TYPES)
+);
 
 
 export function getAllExams() {
@@ -119,37 +117,75 @@ function normalizeOptions(options, questionId) {
 }
 
 function normalizeQuestion(question = {}, index = 0) {
-    const questionId = normalizeText(question.id) ||
+    const questionId =
+        normalizeText(question.id) ||
         generateId(`question-${index + 1}`);
 
-    const type = normalizeText(question.type).toLowerCase() ||
-        "multiple-choice";
+    const type =
+        normalizeText(question.type).toLowerCase() ||
+        QUESTION_TYPES.MULTIPLE_CHOICE;
 
     if (!ALLOWED_QUESTION_TYPES.has(type)) {
-        throw new Error(`Unsupported question type: ${type}`);
+        throw new Error(
+            `Unsupported question type: ${type}`
+        );
     }
 
+    const text = normalizeText(question.text);
     const points = Number(question.points);
 
-    if (!Number.isFinite(points) || points <= 0) {
-        throw new Error("Every question must have points greater than zero.");
+    if (!text) {
+        throw new Error(
+            "Every question needs question text."
+        );
     }
 
-    let options = normalizeOptions(question.options, questionId);
-    let correctAnswer = normalizeText(
-        question.correctAnswer ?? question.correct_answer
+    if (!Number.isFinite(points) || points <= 0) {
+        throw new Error(
+            "Every question must have points greater than zero."
+        );
+    }
+
+    let options = normalizeOptions(
+        question.options,
+        questionId
     );
 
-    if (type === "true-false") {
+    let correctAnswer = normalizeText(
+        question.correctAnswer ??
+        question.correct_answer
+    );
+
+    if (type === QUESTION_TYPES.TRUE_FALSE) {
         options = [
-            { id: "true", text: "True" },
-            { id: "false", text: "False" }
+            {
+                id: "true",
+                text: "True"
+            },
+            {
+                id: "false",
+                text: "False"
+            }
         ];
 
-        correctAnswer = correctAnswer.toLowerCase();
+        correctAnswer =
+            correctAnswer.toLowerCase();
+
+        if (
+            !["true", "false"].includes(
+                correctAnswer
+            )
+        ) {
+            throw new Error(
+                "A true-false answer must be true or false."
+            );
+        }
     }
 
-    if (type === "multiple-choice") {
+    if (
+        type ===
+        QUESTION_TYPES.MULTIPLE_CHOICE
+    ) {
         if (options.length < 2) {
             throw new Error(
                 "A multiple-choice question needs at least two options."
@@ -157,7 +193,8 @@ function normalizeQuestion(question = {}, index = 0) {
         }
 
         const answerExists = options.some(
-            (option) => option.id === correctAnswer
+            (option) =>
+                option.id === correctAnswer
         );
 
         if (!answerExists) {
@@ -168,18 +205,18 @@ function normalizeQuestion(question = {}, index = 0) {
     }
 
     if (!correctAnswer) {
-        throw new Error("Every question needs a correct answer.");
-    }
-
-    if (!normalizeText(question.text)) {
-        throw new Error("Every question needs question text.");
+        throw new Error(
+            "Every question needs a correct answer."
+        );
     }
 
     return {
         id: questionId,
         type,
-        text: normalizeText(question.text),
-        code: String(question.code ?? "").trim(),
+        text,
+        code: String(
+            question.code ?? ""
+        ).trim(),
         points,
         options,
         correctAnswer
@@ -242,6 +279,13 @@ function validateExamData(exam) {
     if (!exam.title) {
         throw new Error("Exam title is required.");
     }
+    if (!exam.description) {
+    throw new Error("Exam description is required.");
+}
+
+if (!exam.instructions) {
+    throw new Error("Exam instructions are required.");
+}
 
     const startTime = new Date(exam.startAt).getTime();
     const endTime = new Date(exam.endAt).getTime();

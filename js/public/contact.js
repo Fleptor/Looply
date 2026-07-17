@@ -1,205 +1,81 @@
-// js/public/contact.js
-
 import {
     showError,
     showSuccess
 } from "../core/alerts.js";
 
+import {
+    getFirstError,
+    validateContactForm
+} from "../core/validation.js";
+
 const contactForm =
     document.getElementById("contact-form");
 
-const firstNameInput =
-    document.getElementById("first-name");
+const contactFields = Object.freeze({
+    firstName: document.getElementById("first-name"),
+    lastName: document.getElementById("last-name"),
+    email: document.getElementById("email"),
+    message: document.getElementById("message")
+});
 
-const lastNameInput =
-    document.getElementById("last-name");
-
-const emailInput =
-    document.getElementById("email");
-
-const messageInput =
-    document.getElementById("message");
-
-/**
- * التحقق من صيغة البريد الإلكتروني.
- *
- * @param {string} email
- * @returns {boolean}
- */
-function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
-        email
-    );
-}
-
-/**
- * إزالة حالات الخطأ من جميع الحقول.
- */
 function clearFieldErrors() {
-    const fields = [
-        firstNameInput,
-        lastNameInput,
-        emailInput,
-        messageInput
-    ];
-
-    fields.forEach((field) => {
+    Object.values(contactFields).forEach((field) => {
         if (!field) {
             return;
         }
 
-        field.classList.remove(
-            "is-invalid"
-        );
-
-        field.removeAttribute(
-            "aria-invalid"
-        );
+        field.classList.remove("is-invalid");
+        field.removeAttribute("aria-invalid");
     });
 }
 
-/**
- * تحديد حقل غير صالح وعرض التنبيه.
- *
- * @param {HTMLElement} field
- * @param {string} message
- */
-async function showFieldError(
-    field,
-    message
-) {
-    if (field) {
-        field.classList.add(
-            "is-invalid"
-        );
+function markInvalidFields(errors = {}) {
+    Object.keys(errors).forEach((fieldName) => {
+        const field = contactFields[fieldName];
 
-        field.setAttribute(
-            "aria-invalid",
-            "true"
-        );
+        field?.classList.add("is-invalid");
+        field?.setAttribute("aria-invalid", "true");
+    });
+}
 
-        field.focus();
-    }
+async function showValidationError(errors) {
+    markInvalidFields(errors);
+
+    const firstInvalidFieldName =
+        Object.keys(errors)[0];
+
+    contactFields[firstInvalidFieldName]?.focus();
 
     await showError(
         "Invalid information",
-        message
+        getFirstError(errors)
     );
 }
 
-/**
- * قراءة بيانات النموذج.
- */
 function getContactData() {
     return {
         firstName:
-            firstNameInput?.value.trim() ??
-            "",
-
+            contactFields.firstName?.value ?? "",
         lastName:
-            lastNameInput?.value.trim() ??
-            "",
-
+            contactFields.lastName?.value ?? "",
         email:
-            emailInput?.value.trim() ??
-            "",
-
+            contactFields.email?.value ?? "",
         message:
-            messageInput?.value.trim() ??
-            ""
+            contactFields.message?.value ?? ""
     };
 }
 
-/**
- * معالجة إرسال النموذج.
- *
- * @param {SubmitEvent} event
- */
 async function handleContactSubmit(event) {
     event.preventDefault();
-
     clearFieldErrors();
 
-    const contactData =
-        getContactData();
+    const validation = validateContactForm(
+        getContactData()
+    );
 
-    if (!contactData.firstName) {
-        await showFieldError(
-            firstNameInput,
-            "First name is required."
-        );
-
-        return;
-    }
-
-    if (
-        contactData.firstName.length < 2
-    ) {
-        await showFieldError(
-            firstNameInput,
-            "First name must contain at least 2 characters."
-        );
-
-        return;
-    }
-
-    if (!contactData.lastName) {
-        await showFieldError(
-            lastNameInput,
-            "Last name is required."
-        );
-
-        return;
-    }
-
-    if (
-        contactData.lastName.length < 2
-    ) {
-        await showFieldError(
-            lastNameInput,
-            "Last name must contain at least 2 characters."
-        );
-
-        return;
-    }
-
-    if (!contactData.email) {
-        await showFieldError(
-            emailInput,
-            "Email is required."
-        );
-
-        return;
-    }
-
-    if (
-        !isValidEmail(
-            contactData.email
-        )
-    ) {
-        await showFieldError(
-            emailInput,
-            "Enter a valid email address."
-        );
-
-        return;
-    }
-
-    if (!contactData.message) {
-        await showFieldError(
-            messageInput,
-            "Message is required."
-        );
-
-        return;
-    }
-
-    if (
-        contactData.message.length < 10
-    ) {
-        await showFieldError(
-            messageInput,
-            "Message must contain at least 10 characters."
+    if (!validation.isValid) {
+        await showValidationError(
+            validation.errors
         );
 
         return;
@@ -212,48 +88,53 @@ async function handleContactSubmit(event) {
 
     if (submitButton) {
         submitButton.disabled = true;
+        submitButton.setAttribute(
+            "aria-busy",
+            "true"
+        );
     }
 
     try {
         await showSuccess(
-            "Message sent successfully!",
-            "Thank you for contacting us. We will respond as soon as possible."
+            "Message sent",
+            "Your message has been received successfully."
         );
 
         contactForm.reset();
         clearFieldErrors();
     } catch (error) {
         console.error(
-            "Unable to show contact success message:",
+            "Unable to complete the contact form submission.",
             error
         );
     } finally {
         if (submitButton) {
             submitButton.disabled = false;
+            submitButton.setAttribute(
+                "aria-busy",
+                "false"
+            );
         }
     }
 }
 
-/**
- * تشغيل صفحة Contact.
- */
 function initializeContactPage() {
     if (!contactForm) {
         console.error(
-            'Contact form with id "contact-form" was not found.'
+            "Contact form was not found."
         );
 
         return;
     }
 
-    if (
-        !firstNameInput ||
-        !lastNameInput ||
-        !emailInput ||
-        !messageInput
-    ) {
+    const missingField =
+        Object.entries(contactFields).find(
+            ([, field]) => !field
+        );
+
+    if (missingField) {
         console.error(
-            "One or more contact form fields were not found."
+            `Contact field was not found: ${missingField[0]}`
         );
 
         return;
@@ -265,15 +146,11 @@ function initializeContactPage() {
     );
 }
 
-if (
-    document.readyState === "loading"
-) {
+if (document.readyState === "loading") {
     document.addEventListener(
         "DOMContentLoaded",
         initializeContactPage,
-        {
-            once: true
-        }
+        { once: true }
     );
 } else {
     initializeContactPage();

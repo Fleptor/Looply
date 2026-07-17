@@ -457,11 +457,18 @@
     border-color: rgba(52, 211, 153, 0.25);
 }
 
-.exam-status-inactive {
+.exam-status-draft {
     color: var(--sec-text);
     background-color: rgba(178, 135, 255, 0.08);
 
     border-color: var(--border);
+}
+
+.exam-status-closed {
+    color: #fecdd3;
+    background-color: rgba(251, 113, 133, 0.08);
+
+    border-color: rgba(251, 113, 133, 0.24);
 }
 
 
@@ -767,11 +774,18 @@
     border-color: rgba(52, 211, 153, 0.25);
 }
 
-.exam-details-status--inactive {
+.exam-details-status--draft {
     color: var(--sec-text);
     background-color: rgba(178, 135, 255, 0.08);
 
     border-color: var(--border);
+}
+
+.exam-details-status--closed {
+    color: #fecdd3;
+    background-color: rgba(251, 113, 133, 0.08);
+
+    border-color: rgba(251, 113, 133, 0.24);
 }
 
 .exam-details-header-actions {
