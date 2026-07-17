@@ -1015,6 +1015,27 @@
     padding: 1.2rem;
 }
 
+.student-latest-result[hidden] {
+    display: none;
+}
+
+.student-result-empty-state {
+    align-items: center;
+    justify-content: center;
+
+    min-height: 180px;
+
+    color: var(--third-text);
+    text-align: center;
+}
+
+.student-result-empty-state p {
+    margin: 0;
+
+    font-size: 0.58rem;
+    line-height: 1.6;
+}
+
 .student-result-exam {
     display: flex;
     align-items: center;

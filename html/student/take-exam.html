@@ -1,253 +1,177 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Take a programming exam in the Looply student workspace."
-    >
+      name="description"
+      content="Take a programming exam in the Looply student workspace."
+    />
 
     <title>Looply | Take Exam</title>
 
     <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    >
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
 
-    <link
-        rel="stylesheet"
-        href="../../css/base.css"
-    >
+    <link rel="stylesheet" href="../../css/base.css" />
 
-    <link
-        rel="stylesheet"
-        href="../../css/dashboard-student.css"
-    >
+    <link rel="stylesheet" href="../../css/dashboard-student.css" />
 
-    <link
-        rel="stylesheet"
-        href="../../css/student-exam.css"
-    >
-</head>
+    <link rel="stylesheet" href="../../css/student-exam.css" />
+  </head>
 
-<body class="student-page">
-
+  <body class="student-page">
     <header id="student-topbar-root"></header>
 
     <aside id="student-sidebar-root"></aside>
 
-    <div
-        id="student-sidebar-overlay"
-        class="student-sidebar-overlay"
-    ></div>
+    <div id="student-sidebar-overlay" class="student-sidebar-overlay"></div>
 
     <main class="student-main">
+      <form
+        id="student-exam-form"
+        class="take-exam-page"
+        action="#"
+        method="post"
+      >
+        <input type="hidden" name="exam_id" value="exam-1" />
 
-        <form
-            id="student-exam-form"
-            class="take-exam-page"
-            action="#"
-            method="post"
-        >
+        <!-- Exam header -->
+        <section class="take-exam-header">
+          <div class="take-exam-header-content">
+            <span class="take-exam-label"> Active Exam </span>
 
-            <input
-                type="hidden"
-                name="exam_id"
-                value="exam-1"
-            >
+            <h1 class="take-exam-title">JavaScript Fundamentals</h1>
 
-            <!-- Exam header -->
-            <section class="take-exam-header">
+            <p class="take-exam-description">
+              Answer all questions before submitting the exam. You can review
+              and change your answers until submission.
+            </p>
+          </div>
 
-                <div class="take-exam-header-content">
+          <div
+            class="take-exam-timer"
+            id="exam-timer"
+            aria-label="Time remaining"
+          >
+            <span class="take-exam-timer-icon">
+              <i class="bi bi-clock" aria-hidden="true"></i>
+            </span>
 
-                    <span class="take-exam-label">
-                        Active Exam
-                    </span>
+            <div>
+              <small>Time Remaining</small>
 
-                    <h1 class="take-exam-title">
-                        JavaScript Fundamentals
-                    </h1>
+              <strong id="exam-timer-value"> 60:00 </strong>
+            </div>
+          </div>
+        </section>
 
-                    <p class="take-exam-description">
-                        Answer all questions before submitting the exam.
-                        You can review and change your answers until submission.
-                    </p>
+        <!-- Exam progress -->
+        <section class="take-exam-progress-panel" aria-label="Exam progress">
+          <div class="take-exam-progress-copy">
+            <span>Exam Progress</span>
+            <strong id="exam-progress-fraction">Loading...</strong>
+          </div>
+          <div class="take-exam-progress-meta">
+            <span>
+              <i class="bi bi-list-check" aria-hidden="true"></i>
+              Answer every question
+            </span>
+            <span>
+              <i class="bi bi-award" aria-hidden="true"></i>
+              <span id="exam-total-points-badge">--</span> total points
+            </span>
+          </div>
 
-                </div>
-
-                <div
-                    class="take-exam-timer"
-                    id="exam-timer"
-                    aria-label="Time remaining"
-                >
-
-                    <span class="take-exam-timer-icon">
-                        <i
-                            class="bi bi-clock"
-                            aria-hidden="true"
-                        ></i>
-                    </span>
-
-                    <div>
-                        <small>Time Remaining</small>
-
-                        <strong id="exam-timer-value">
-                            60:00
-                        </strong>
-                    </div>
-
-                </div>
-
-            </section>
-
-            <!-- Exam progress -->
-            <section
-                class="take-exam-progress-panel"
-                aria-label="Exam progress"
-            >
-            <div class="take-exam-progress-copy">
-               <span>Exam Progress</span>
-               <strong id="exam-progress-fraction">Loading...</strong>
-           </div>
-           <div class="take-exam-progress-meta">
-               <span>
-                   <i class="bi bi-list-check" aria-hidden="true"></i>
-                   Answer every question
-               </span>
-               <span>
-                   <i class="bi bi-award" aria-hidden="true"></i>
-                   <span id="exam-total-points-badge">--</span> total points
-               </span>
-           </div>
-
-           <div class="take-exam-questions" id="active-question-card-wrapper">
+          <div class="take-exam-questions" id="active-question-card-wrapper">
             <!-- Dynamically loaded question card will render here -->
-           </div>
+          </div>
+        </section>
 
+        <div class="take-exam-layout">
+          <!-- Questions -->
 
+          <!-- Exam sidebar -->
+          <aside class="take-exam-sidebar">
+            <section class="take-exam-navigation-panel">
+              <div class="take-exam-sidebar-header">
+                <h2>Questions</h2>
+
+                <span>4 total</span>
+              </div>
+
+              <nav
+                class="take-exam-question-navigation"
+                id="question-navigation-grid"
+                aria-label="Exam question navigation"
+              >
+                <!-- Navigation bubbles generated dynamically -->
+              </nav>
+
+              <div class="take-exam-navigation-note">
+                <i class="bi bi-info-circle" aria-hidden="true"></i>
+
+                <p>Use the question numbers to move through the exam.</p>
+              </div>
             </section>
 
-            <div class="take-exam-layout">
+            <section class="take-exam-submit-panel">
+              <span class="take-exam-submit-icon">
+                <i class="bi bi-send-check" aria-hidden="true"></i>
+              </span>
 
-                <!-- Questions -->
+              <div>
+                <h2>Submit Exam</h2>
 
-                <!-- Exam sidebar -->
-                <aside class="take-exam-sidebar">
+                <p>
+                  Review all answers before submitting. You cannot submit the
+                  exam twice.
+                </p>
+              </div>
 
-                    <section class="take-exam-navigation-panel">
+              <button
+                type="submit"
+                class="take-exam-submit-btn"
+                id="submit-exam-btn"
+                data-submit-exam
+              >
+                <i class="bi bi-check-lg" aria-hidden="true"></i>
 
-                        <div class="take-exam-sidebar-header">
+                <span>Submit Exam</span>
+              </button>
+            </section>
+          </aside>
+        </div>
 
-                            <h2>Questions</h2>
+        <!-- Bottom actions -->
+        <div class="take-exam-bottom-actions">
+          <a href="exams.html" class="take-exam-exit-btn">
+            <i class="bi bi-arrow-left" aria-hidden="true"></i>
 
-                            <span>4 total</span>
+            <span>Exit Exam</span>
+          </a>
 
-                        </div>
+          <button
+            type="submit"
+            class="primary-btn take-exam-bottom-submit-btn"
+            data-submit-exam
+          >
+            <i class="bi bi-check-lg" aria-hidden="true"></i>
 
-                        <nav class="take-exam-question-navigation" id="question-navigation-grid" aria-label="Exam question navigation">
-                            <!-- Navigation bubbles generated dynamically -->
-                        </nav>
-
-
-                        <div class="take-exam-navigation-note">
-
-                            <i
-                                class="bi bi-info-circle"
-                                aria-hidden="true"
-                            ></i>
-
-                            <p>
-                                Use the question numbers to move through
-                                the exam.
-                            </p>
-
-                        </div>
-
-                    </section>
-
-                    <section class="take-exam-submit-panel">
-
-                        <span class="take-exam-submit-icon">
-                            <i
-                                class="bi bi-send-check"
-                                aria-hidden="true"
-                            ></i>
-                        </span>
-
-                        <div>
-
-                            <h2>Submit Exam</h2>
-
-                            <p>
-                                Review all answers before submitting.
-                                You cannot submit the exam twice.
-                            </p>
-
-                        </div>
-
-                        <button
-                            type="submit"
-                            class="take-exam-submit-btn"
-                            id="submit-exam-btn"
-                            data-submit-exam
-                        >
-                            <i
-                                class="bi bi-check-lg"
-                                aria-hidden="true"
-                            ></i>
-
-                            <span>Submit Exam</span>
-                        </button>
-
-                    </section>
-
-                </aside>
-
-            </div>
-
-            <!-- Bottom actions -->
-            <div class="take-exam-bottom-actions">
-
-                <a
-                    href="exams.html"
-                    class="take-exam-exit-btn"
-                >
-                    <i
-                        class="bi bi-arrow-left"
-                        aria-hidden="true"
-                    ></i>
-
-                    <span>Exit Exam</span>
-                </a>
-
-                <button
-                    type="submit"
-                    class="primary-btn take-exam-bottom-submit-btn"
-                    data-submit-exam
-                >
-                    <i
-                        class="bi bi-check-lg"
-                        aria-hidden="true"
-                    ></i>
-
-                    <span>Submit Exam</span>
-                </button>
-
-            </div>
-
-        </form>
-
+            <span>Submit Exam</span>
+          </button>
+        </div>
+      </form>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../../js/core/app.js"></script>
     <script type="module" src="../../js/components/student-topbar.js"></script>
     <script type="module" src="../../js/components/student-sidebar.js"></script>
-
-</body>
+    <script type="module" src="../../js/student/take-exam.js"></script>
+  </body>
 </html>

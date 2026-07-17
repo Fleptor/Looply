@@ -18,14 +18,11 @@ import {
     showSuccessToast
 } from "./alerts.js";
 
+
 let seedWasChecked = false;
 let logoutIsInProgress = false;
 
-/**
- * Initialize the demo data once during the current page load.
- *
- * @returns {object|null}
- */
+
 export function initializeSeedData() {
     if (seedWasChecked) {
         return null;
@@ -36,17 +33,16 @@ export function initializeSeedData() {
     try {
         return seedInitialData();
     } catch (error) {
-        console.error("Unable to initialize Looply data.", error);
+        console.error(
+            "Unable to initialize Looply data.",
+            error
+        );
+
         return null;
     }
 }
 
-/**
- * Ask the user to confirm logging out.
- * SweetAlert2 is preferred, with a native confirmation as a fallback.
- *
- * @returns {Promise<boolean>}
- */
+
 async function requestLogoutConfirmation() {
     if (window.Swal) {
         return confirmLogout();
@@ -55,16 +51,14 @@ async function requestLogoutConfirmation() {
     return window.confirm("Log out of Looply?");
 }
 
-/**
- * Complete logout and redirect to the login page.
- *
- * @param {string} redirectUrl
- */
+
 async function completeLogout(redirectUrl) {
     logout();
 
     if (window.Swal) {
-        showSuccessToast("You have been logged out.");
+        showSuccessToast(
+            "You have been logged out."
+        );
 
         await new Promise((resolve) => {
             window.setTimeout(resolve, 550);
@@ -74,13 +68,7 @@ async function completeLogout(redirectUrl) {
     window.location.replace(redirectUrl);
 }
 
-/**
- * Handle logout requests dispatched by the student and teacher sidebars.
- * Calling preventDefault synchronously stops the sidebar from navigating
- * before the asynchronous confirmation has finished.
- *
- * @param {CustomEvent} event
- */
+
 async function handleLogoutRequest(event) {
     event.preventDefault();
 
@@ -91,18 +79,23 @@ async function handleLogoutRequest(event) {
     logoutIsInProgress = true;
 
     try {
-        const confirmed = await requestLogoutConfirmation();
+        const confirmed =
+            await requestLogoutConfirmation();
 
         if (!confirmed) {
             return;
         }
 
         const redirectUrl =
-            event.detail?.redirectUrl ?? ROUTES.LOGIN;
+            event.detail?.redirectUrl ??
+            ROUTES.LOGIN;
 
         await completeLogout(redirectUrl);
     } catch (error) {
-        console.error("Unable to log out.", error);
+        console.error(
+            "Unable to log out.",
+            error
+        );
 
         if (window.Swal) {
             await showError(
@@ -115,15 +108,14 @@ async function handleLogoutRequest(event) {
     }
 }
 
-/**
- * Install the shared logout event listener once.
- *
- * @returns {boolean}
- */
+
 export function installLogoutHandler() {
     const root = document.documentElement;
 
-    if (root.dataset.looplyLogoutHandler === "true") {
+    if (
+        root.dataset.looplyLogoutHandler ===
+        "true"
+    ) {
         return false;
     }
 
@@ -133,15 +125,11 @@ export function installLogoutHandler() {
     );
 
     root.dataset.looplyLogoutHandler = "true";
+
     return true;
 }
 
-/**
- * Initialize a public page.
- *
- * @param {{ redirectAuthenticated?: boolean }} options
- * @returns {object|null}
- */
+
 export function initPublicPage(options = {}) {
     const {
         redirectAuthenticated = false
@@ -160,129 +148,88 @@ export function initPublicPage(options = {}) {
     return getCurrentUser();
 }
 
-/**
- * Initialize a protected student page and render its shared layout.
- *
- * @returns {Promise<object|null>}
- */
-export async function initStudentPage() {
+
+export function initStudentPage() {
     initializeSeedData();
     installLogoutHandler();
 
-    const user = requireRole(
+    return requireRole(
         USER_ROLES.STUDENT,
-        { redirect: true }
+        {
+            redirect: true
+        }
     );
-
-    if (!user) {
-        return null;
-    }
-
-    const [topbarModule, sidebarModule] = await Promise.all([
-        import("../components/student-topbar.js"),
-        import("../components/student-sidebar.js")
-    ]);
-
-    topbarModule.renderStudentTopbar(user);
-    sidebarModule.renderStudentSidebar();
-
-    return user;
 }
 
-/**
- * Initialize a protected teacher page and render its shared layout.
- *
- * @returns {Promise<object|null>}
- */
-export async function initTeacherPage() {
+
+export function initTeacherPage() {
     initializeSeedData();
     installLogoutHandler();
 
-    const user = requireRole(
+    return requireRole(
         USER_ROLES.TEACHER,
-        { redirect: true }
+        {
+            redirect: true
+        }
     );
+}
 
-    if (!user) {
+
+/**
+ * Detect the current protected page from its
+ * shared component roots, then run the correct
+ * role initialization.
+ *
+ * Public pages do not contain these roots, so
+ * importing app.js on Login or Contact is safe.
+ */
+function initializeCurrentProtectedPage() {
+    const studentTopbarRoot =
+        document.querySelector(
+            "#student-topbar-root"
+        );
+
+    const teacherTopbarRoot =
+        document.querySelector(
+            "#teacher-topbar-root"
+        );
+
+    if (
+        studentTopbarRoot &&
+        teacherTopbarRoot
+    ) {
+        console.error(
+            "The page contains both student and teacher topbar roots."
+        );
+
         return null;
     }
 
-    const [topbarModule, sidebarModule] = await Promise.all([
-        import("../components/teacher-topbar.js"),
-        import("../components/teacher-sidebar.js")
-    ]);
-
-    topbarModule.renderTeacherTopbar(user);
-    sidebarModule.renderTeacherSidebar();
-
-    return user;
-}
-
-/**
- * Detect the current page type from its body class or URL.
- *
- * @returns {"student" | "teacher" | "public"}
- */
-function detectPageType() {
-    const path = window.location.pathname.toLowerCase();
-
-    if (
-        document.body.classList.contains("student-page") ||
-        path.includes("/student/")
-    ) {
-        return "student";
-    }
-
-    if (
-        document.body.classList.contains("teacher-page") ||
-        path.includes("/teacher/")
-    ) {
-        return "teacher";
-    }
-
-    return "public";
-}
-
-/**
- * Initialize Looply based on the current page type.
- *
- * @returns {Promise<object|null>}
- */
-export async function initializeApp() {
-    const root = document.documentElement;
-
-    if (root.dataset.looplyAppInitialized === "true") {
-        return getCurrentUser();
-    }
-
-    root.dataset.looplyAppInitialized = "true";
-
-    const pageType = detectPageType();
-
-    if (pageType === "student") {
+    if (studentTopbarRoot) {
         return initStudentPage();
     }
 
-    if (pageType === "teacher") {
+    if (teacherTopbarRoot) {
         return initTeacherPage();
     }
 
-    return initPublicPage();
+    return null;
 }
 
-function startApplication() {
-    initializeApp().catch((error) => {
-        console.error("Unable to initialize Looply.", error);
-    });
+
+function initializeApp() {
+    initializeCurrentProtectedPage();
 }
+
 
 if (document.readyState === "loading") {
     document.addEventListener(
         "DOMContentLoaded",
-        startApplication,
-        { once: true }
+        initializeApp,
+        {
+            once: true
+        }
     );
 } else {
-    startApplication();
+    initializeApp();
 }
-

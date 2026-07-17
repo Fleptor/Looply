@@ -1,232 +1,201 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Student dashboard for viewing available exams and recent results."
-    >
+      name="description"
+      content="Student dashboard for viewing available exams and recent results."
+    />
 
     <title>Looply | Student Dashboard</title>
 
     <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    >
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
 
-    <link
-        rel="stylesheet"
-        href="../../css/base.css"
-    >
+    <link rel="stylesheet" href="../../css/base.css" />
 
-    <link
-        rel="stylesheet"
-        href="../../css/dashboard-student.css"
-    >
+    <link rel="stylesheet" href="../../css/dashboard-student.css" />
+  </head>
 
-    <link
-        rel="stylesheet"
-        href="../../css/dashboard-student.css"
-    >
-</head>
-
-<body class="student-page">
-
+  <body class="student-page">
     <header id="student-topbar-root"></header>
 
     <aside id="student-sidebar-root"></aside>
 
-    <div
-        id="student-sidebar-overlay"
-        class="student-sidebar-overlay"
-    ></div>
+    <div id="student-sidebar-overlay" class="student-sidebar-overlay"></div>
 
     <main class="student-main">
+      <div class="student-dashboard">
+        <!-- Page header -->
+        <section class="student-dashboard-header">
+          <div class="student-dashboard-header-content">
+            <span class="student-dashboard-label"> Student Dashboard </span>
 
-        <div class="student-dashboard">
+            <h1 class="student-dashboard-title" id="welcome-message">
+              Welcome back...
+            </h1>
 
-            <!-- Page header -->
-            <section class="student-dashboard-header">
+            <p class="student-dashboard-description">
+              View your available exams and review your latest completed result.
+            </p>
+          </div>
 
-                <div class="student-dashboard-header-content">
+          <a href="exams.html" class="primary-btn student-dashboard-exams-btn">
+            <i class="bi bi-journal-code" aria-hidden="true"></i>
 
-                    <span class="student-dashboard-label">
-                        Student Dashboard
-                    </span>
+            <span>View Exams</span>
+          </a>
+        </section>
 
-                <h1 class="student-dashboard-title" id="welcome-message">
-                        Welcome back...
-                </h1>
+        <!-- Statistics -->
+        <section class="student-dashboard-stats" aria-label="Exam statistics">
+          <article class="student-stat-card">
+            <span class="student-stat-icon">
+              <i class="bi bi-file-earmark-code" aria-hidden="true"></i>
+            </span>
+            <div class="student-stat-content">
+              <p>Available Exams</p>
+              <strong id="stat-available-count">--</strong>
+            </div>
+          </article>
 
+          <article class="student-stat-card">
+            <span class="student-stat-icon">
+              <i class="bi bi-check-circle" aria-hidden="true"></i>
+            </span>
+            <div class="student-stat-content">
+              <p>Completed Exams</p>
+              <strong id="stat-completed-count">--</strong>
+            </div>
+          </article>
+        </section>
 
-                    <p class="student-dashboard-description">
-                        View your available exams and review your latest
-                        completed result.
-                    </p>
+        <!-- Main dashboard panels -->
+        <div class="student-dashboard-grid">
+          <!-- Available exams -->
+          <section class="student-dashboard-panel">
+            <div class="student-panel-header">
+              <div class="student-panel-heading">
+                <h2>Available Exams</h2>
 
-                </div>
+                <p>Exams currently available for you to take.</p>
+              </div>
 
-                <a
-                    href="exams.html"
-                    class="primary-btn student-dashboard-exams-btn"
-                >
-                    <i
-                        class="bi bi-journal-code"
-                        aria-hidden="true"
-                    ></i>
+              <a href="exams.html" class="student-panel-link">
+                <span>View all</span>
 
-                    <span>View Exams</span>
-                </a>
-
-            </section>
-
-            <!-- Statistics -->
-            <section
-                class="student-dashboard-stats"
-                aria-label="Exam statistics"
-            >
-
-            <article class="student-stat-card">
-                <span class="student-stat-icon">
-                    <i class="bi bi-file-earmark-code" aria-hidden="true"></i>
-                </span>
-                <div class="student-stat-content">
-                    <p>Available Exams</p>
-                    <strong id="stat-available-count">--</strong>
-                </div>
-            </article>
-            
-            <article class="student-stat-card">
-                <span class="student-stat-icon">
-                    <i class="bi bi-check-circle" aria-hidden="true"></i>
-                </span>
-                <div class="student-stat-content">
-                    <p>Completed Exams</p>
-                    <strong id="stat-completed-count">--</strong>
-                </div>
-            </article>
-
-            </section>
-
-            <!-- Main dashboard panels -->
-            <div class="student-dashboard-grid">
-
-                <!-- Available exams -->
-                <section class="student-dashboard-panel">
-
-                    <div class="student-panel-header">
-
-                        <div class="student-panel-heading">
-
-                            <h2>Available Exams</h2>
-
-                            <p>
-                                Exams currently available for you to take.
-                            </p>
-
-                        </div>
-
-                        <a
-                            href="exams.html"
-                            class="student-panel-link"
-                        >
-                            <span>View all</span>
-
-                            <i
-                                class="bi bi-arrow-right"
-                                aria-hidden="true"
-                            ></i>
-                        </a>
-
-                    </div>
-
-                    <div class="student-available-exams" id="available-exams-container">
-                        <!-- Dynamic available exams will be rendered here by student/dashboard.js -->
-                    </div>
-
-
-                </section>
-
-                <!-- Latest result -->
-                <section class="student-dashboard-panel latest-result-panel">
-
-                    <div class="student-panel-header">
-
-                        <div class="student-panel-heading">
-
-                            <h2>Latest Result</h2>
-
-                            <p>
-                                Your most recently completed exam.
-                            </p>
-
-                        </div>
-
-                        <a
-                            href="history.html"
-                            class="student-panel-link"
-                        >
-                            <span>History</span>
-
-                            <i
-                                class="bi bi-arrow-right"
-                                aria-hidden="true"
-                            ></i>
-                        </a>
-
-                    </div>
-
-                    <div class="student-latest-result d-none" id="latest-result-container">
-                        <div class="student-result-exam">
-                            <span class="student-result-icon" id="latest-result-icon-container">
-                                <i class="bi bi-journal-check" aria-hidden="true"></i>
-                            </span>
-                            <div>
-                                <h3 id="latest-result-title">Loading...</h3>
-                                <p id="latest-result-date">Please wait</p>
-                            </div>
-                        </div>
-                        <div class="student-result-score">
-                            <span>Score</span>
-                            <div>
-                                <strong id="latest-result-score">--</strong>
-                                <small>/ <span id="latest-result-max">--</span></small>
-                            </div>
-                        </div>
-                        <div class="student-result-details">
-                            <div>
-                                <span>Correct Answers</span>
-                                <strong id="latest-result-fraction">-- / --</strong>
-                            </div>
-                            <div>
-                                <span>Result</span>
-                                <strong class="student-result-passed" id="latest-result-status">--</strong>
-                            </div>
-                        </div>
-                        <a href="exam-result.html" class="student-review-result-btn" id="latest-result-review-link">
-                            <i class="bi bi-eye" aria-hidden="true"></i>
-                            <span>Review Result</span>
-                        </a>
-                    </div>
-                    <div class="student-latest-result text-center py-4" id="latest-result-empty-container">
-                        <p class="text-muted m-0">No recent exam attempts found.</p>
-                    </div>
-                </section>
-
+                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </a>
             </div>
 
-        </div>
+            <div class="student-available-exams" id="available-exams-container">
+              <!-- Dynamic available exams will be rendered here by student/dashboard.js -->
+            </div>
+          </section>
 
+          <!-- Latest result -->
+          <section class="student-dashboard-panel latest-result-panel">
+            <div class="student-panel-header">
+              <div class="student-panel-heading">
+                <h2>Latest Result</h2>
+
+                <p>Your most recently completed exam.</p>
+              </div>
+
+              <a href="history.html" class="student-panel-link">
+                <span>History</span>
+
+                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+
+            <div
+              class="student-latest-result"
+              id="latest-result-container"
+              aria-live="polite"
+              hidden
+            >
+              <div class="student-result-exam">
+                <span
+                  class="student-result-icon"
+                  id="latest-result-icon-container"
+                >
+                  <i class="bi bi-journal-check" aria-hidden="true"></i>
+                </span>
+
+                <div>
+                  <h3 id="latest-result-title">Loading...</h3>
+
+                  <p id="latest-result-date">Please wait</p>
+                </div>
+              </div>
+
+              <div class="student-result-score">
+                <span>Score</span>
+
+                <div>
+                  <strong id="latest-result-score"> -- </strong>
+
+                  <small>
+                    /
+                    <span id="latest-result-max"> -- </span>
+                  </small>
+                </div>
+              </div>
+
+              <div class="student-result-details">
+                <div>
+                  <span>Correct Answers</span>
+
+                  <strong id="latest-result-fraction"> -- / -- </strong>
+                </div>
+
+                <div>
+                  <span>Result</span>
+
+                  <strong
+                    class="student-result-passed"
+                    id="latest-result-status"
+                  >
+                    --
+                  </strong>
+                </div>
+              </div>
+
+              <a
+                href="exam-result.html"
+                class="student-review-result-btn"
+                id="latest-result-review-link"
+              >
+                <i class="bi bi-eye" aria-hidden="true"></i>
+
+                <span>Review Result</span>
+              </a>
+            </div>
+
+            <div
+              class="student-latest-result student-result-empty-state"
+              id="latest-result-empty-container"
+              aria-live="polite"
+            >
+              <p id="latest-result-empty-message">
+                No recent exam attempts found.
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../../js/core/app.js"></script>
     <script type="module" src="../../js/components/student-topbar.js"></script>
     <script type="module" src="../../js/components/student-sidebar.js"></script>
-
-</body>
+    <script type="module" src="../../js/student/dashboard.js"></script>
+  </body>
 </html>

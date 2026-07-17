@@ -1,43 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="View completed exams and previous results in Looply."
-    >
+      name="description"
+      content="View completed exams and previous results in Looply."
+    />
 
     <title>Looply | Exam History</title>
 
     <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    >
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
 
-    <link
-        rel="stylesheet"
-        href="../../css/base.css"
-    >
+    <link rel="stylesheet" href="../../css/base.css" />
 
-    <link
-        rel="stylesheet"
-        href="../../css/dashboard-student.css"
-    >
+    <link rel="stylesheet" href="../../css/dashboard-student.css" />
+  </head>
 
-    <link
-        rel="stylesheet"
-        href="../../css/dashboard-student.css"
-    >
-</head>
-
-<body class="student-page">
-
+  <body class="student-page">
     <!-- Shared student topbar -->
     <header id="student-topbar-root"></header>
 
@@ -45,110 +30,71 @@
     <aside id="student-sidebar-root"></aside>
 
     <!-- Mobile sidebar overlay -->
-    <div
-        id="student-sidebar-overlay"
-        class="student-sidebar-overlay"
-    ></div>
+    <div id="student-sidebar-overlay" class="student-sidebar-overlay"></div>
 
     <main class="student-main">
+      <div class="student-history-page">
+        <!-- Page header -->
+        <section class="student-history-header">
+          <div class="student-history-header-content">
+            <span class="student-history-label"> Student Results </span>
 
-        <div class="student-history-page">
+            <h1 class="student-history-title">Exam History</h1>
 
-            <!-- Page header -->
-            <section class="student-history-header">
+            <p class="student-history-description">
+              Review your completed exams, scores, and submitted answers.
+            </p>
+          </div>
 
-                <div class="student-history-header-content">
+          <a href="exams.html" class="student-history-exams-btn">
+            <i class="bi bi-journal-code" aria-hidden="true"></i>
 
-                    <span class="student-history-label">
-                        Student Results
-                    </span>
+            <span>Available Exams</span>
+          </a>
+        </section>
 
-                    <h1 class="student-history-title">
-                        Exam History
-                    </h1>
-
-                    <p class="student-history-description">
-                        Review your completed exams, scores, and submitted
-                        answers.
-                    </p>
-
-                </div>
-
-                <a
-                    href="exams.html"
-                    class="student-history-exams-btn"
-                >
-                    <i
-                        class="bi bi-journal-code"
-                        aria-hidden="true"
-                    ></i>
-
-                    <span>Available Exams</span>
-                </a>
-
-            </section>
-
-            <!-- History panel -->
-            <section class="student-history-panel">
-
-                <div class="student-history-panel-header">
-
-                    <div class="student-history-panel-heading">
-
-                        <div class="student-history-heading-row">
-
-                            <h2>Completed Exams</h2>
-                            <span class="student-history-count" id="history-total-count">
-                                -- exams
-                            </span>
-                        </div>
-
-                        <p>
-                            Open an exam result to review your submitted
-                            answers.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="student-history-list" id="history-items-container">
-                    <!-- Your student/history.js file will build and insert items here dynamically -->
-                </div>
-
-
-            </section>
-
-            <!-- Information note -->
-            <section class="student-history-note">
-
-                <span class="student-history-note-icon">
-                    <i
-                        class="bi bi-info-circle"
-                        aria-hidden="true"
-                    ></i>
+        <!-- History panel -->
+        <section class="student-history-panel">
+          <div class="student-history-panel-header">
+            <div class="student-history-panel-heading">
+              <div class="student-history-heading-row">
+                <h2>Completed Exams</h2>
+                <span class="student-history-count" id="history-total-count">
+                  -- exams
                 </span>
+              </div>
 
-                <div>
+              <p>Open an exam result to review your submitted answers.</p>
+            </div>
+          </div>
 
-                    <h2>Result Review</h2>
+          <div class="student-history-list" id="history-items-container">
+            <!-- Your student/history.js file will build and insert items here dynamically -->
+          </div>
+        </section>
 
-                    <p>
-                        Each result page shows your submitted answers and the
-                        correct answers for the completed exam.
-                    </p>
+        <!-- Information note -->
+        <section class="student-history-note">
+          <span class="student-history-note-icon">
+            <i class="bi bi-info-circle" aria-hidden="true"></i>
+          </span>
 
-                </div>
+          <div>
+            <h2>Result Review</h2>
 
-            </section>
-
-        </div>
-
+            <p>
+              Each result page shows your submitted answers and the correct
+              answers for the completed exam.
+            </p>
+          </div>
+        </section>
+      </div>
     </main>
 
-    <!-- Shared component scripts only -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../../js/core/app.js"></script>
     <script type="module" src="../../js/components/student-topbar.js"></script>
     <script type="module" src="../../js/components/student-sidebar.js"></script>
-
-</body>
+    <script type="module" src="../../js/student/history.js"></script>
+  </body>
 </html>

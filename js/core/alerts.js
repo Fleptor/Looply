@@ -277,5 +277,8 @@ export function showLoading(
 }
 
 export function closeAlert() {
-    getSweetAlert().close();
+    const Swal = getSweetAlert();
+
+    Swal.hideLoading();
+    Swal.close();
 }

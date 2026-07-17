@@ -1,26 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="View the Looply teacher profile and account information.">
+    <meta
+      name="description"
+      content="View the Looply teacher profile and account information."
+    />
 
     <title>Looply | Teacher Profile</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
 
-    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/base.css" />
 
-    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/dashboard.css" />
 
-    <link rel="stylesheet" href="../../css/profile.css">
-</head>
+    <link rel="stylesheet" href="../../css/profile.css" />
+  </head>
 
-<body class="teacher-page profile-page">
-
+  <body class="teacher-page profile-page">
     <!-- Shared teacher topbar -->
     <header id="teacher-topbar-root"></header>
 
@@ -31,188 +35,122 @@
     <div id="teacher-sidebar-overlay" class="teacher-sidebar-overlay"></div>
 
     <main class="teacher-main">
-
-        <div class="profile-container">
-
-            <!-- Page header -->
-            <section class="profile-page-header">
-
-                <span class="profile-page-label">
-                    Teacher Account
-                </span>
-
-                <h1 class="profile-page-title">
-                    My Profile
-                </h1>
-
-                <p class="profile-page-description">
-                    View your personal and account information.
-                </p>
-
-            </section>
-
-            <!-- Profile summary -->
-            <section class="profile-summary-card">
-
-                <div class="profile-avatar" aria-label="Tariq Ahmad initials">
-                    <span>TA</span>
-                </div>
-
-                <div class="profile-summary-content">
-
-                    <div class="profile-name-row">
-
-                        <h2 data-profile-name>
-                            Tariq Ahmad
-                        </h2>
-
-                        <span class="profile-role" data-profile-role>
-                            Teacher
-                        </span>
-
-                    </div>
-
-                    <p data-profile-email>
-                        tariq.ahmad@looply.edu
-                    </p>
-
-                    <div class="profile-account-status">
-
-                        <span class="profile-status-dot" aria-hidden="true"></span>
-
-                        <span>Active Account</span>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-            <!-- Account information -->
-            <section class="profile-information-panel">
-
-                <div class="profile-panel-header">
-
-                    <div>
-
-                        <h2>Account Information</h2>
-
-                        <p>
-                            Your registered teacher information in Looply.
-                        </p>
-
-                    </div>
-
-                    <span class="profile-panel-icon">
-
-                        <i class="bi bi-person-badge" aria-hidden="true"></i>
-
-                    </span>
-
-                </div>
-
-                <div class="profile-information-grid">
-
-                    <!-- Full name -->
-                    <article class="profile-information-item">
-
-                        <span class="profile-information-icon">
-
-                            <i class="bi bi-person" aria-hidden="true"></i>
-
-                        </span>
-
-                        <div>
-
-                            <small>Full Name</small>
-
-                            <strong data-profile-name>
-                                Tariq Ahmad
-                            </strong>
-
-                        </div>
-
-                    </article>
-
-                    <!-- Email -->
-                    <article class="profile-information-item">
-
-                        <span class="profile-information-icon">
-
-                            <i class="bi bi-envelope" aria-hidden="true"></i>
-
-                        </span>
-
-                        <div>
-
-                            <small>Email Address</small>
-
-                            <strong data-profile-email>
-                                tariq.ahmad@looply.edu
-                            </strong>
-
-                        </div>
-
-                    </article>
-
-                    <!-- Role -->
-                    <article class="profile-information-item">
-
-                        <span class="profile-information-icon">
-
-                            <i class="bi bi-person-workspace" aria-hidden="true"></i>
-
-                        </span>
-
-                        <div>
-
-                            <small>Account Role</small>
-
-                            <strong data-profile-role>
-                                Teacher
-                            </strong>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </section>
-
-            <!-- Access note -->
-            <section class="profile-access-panel">
-
-                <span class="profile-access-icon">
-
-                    <i class="bi bi-shield-check" aria-hidden="true"></i>
-
-                </span>
-
-                <div class="profile-access-content">
-
-                    <h2>Account Access</h2>
-
-                    <p>
-                        This teacher account can manage students, exams,
-                        and exam results.
-                    </p>
-
-                </div>
-
-            </section>
-
-        </div>
-
+      <div class="profile-container">
+        <!-- Page header -->
+        <section class="profile-page-header">
+          <span class="profile-page-label"> Teacher Account </span>
+
+          <h1 class="profile-page-title">My Profile</h1>
+
+          <p class="profile-page-description">
+            View your personal and account information.
+          </p>
+        </section>
+
+        <!-- Profile summary -->
+        <section class="profile-summary-card">
+          <div
+            class="profile-avatar"
+            aria-label="Teacher initials"
+            data-profile-avatar
+          >
+            <span data-profile-initials> TR </span>
+          </div>
+
+          <div class="profile-summary-content">
+            <div class="profile-name-row">
+              <h2 data-profile-name>Loading...</h2>
+
+              <span class="profile-role" data-profile-role> Teacher </span>
+            </div>
+
+            <p data-profile-username>Loading username...</p>
+
+            <div class="profile-account-status">
+              <span class="profile-status-dot" aria-hidden="true"></span>
+
+              <span>Active Account</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Account information -->
+        <section class="profile-information-panel">
+          <div class="profile-panel-header">
+            <div>
+              <h2>Account Information</h2>
+
+              <p>Your registered teacher information in Looply.</p>
+            </div>
+
+            <span class="profile-panel-icon">
+              <i class="bi bi-person-badge" aria-hidden="true"></i>
+            </span>
+          </div>
+
+          <div class="profile-information-grid">
+            <!-- Full name -->
+            <article class="profile-information-item">
+              <span class="profile-information-icon">
+                <i class="bi bi-person" aria-hidden="true"></i>
+              </span>
+
+              <div>
+                <small>Full Name</small>
+
+                <strong data-profile-name> Loading... </strong>
+              </div>
+            </article>
+
+            <!-- Username -->
+            <article class="profile-information-item">
+              <span class="profile-information-icon">
+                <i class="bi bi-person-circle" aria-hidden="true"></i>
+              </span>
+
+              <div>
+                <small>Username</small>
+
+                <strong data-profile-username> Loading... </strong>
+              </div>
+            </article>
+
+            <!-- Role -->
+            <article class="profile-information-item">
+              <span class="profile-information-icon">
+                <i class="bi bi-person-workspace" aria-hidden="true"></i>
+              </span>
+
+              <div>
+                <small>Account Role</small>
+
+                <strong data-profile-role> Teacher </strong>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Access note -->
+        <section class="profile-access-panel">
+          <span class="profile-access-icon">
+            <i class="bi bi-shield-check" aria-hidden="true"></i>
+          </span>
+
+          <div class="profile-access-content">
+            <h2>Account Access</h2>
+
+            <p>
+              This teacher account can manage students, exams, and exam results.
+            </p>
+          </div>
+        </section>
+      </div>
     </main>
 
-    <!-- Shared teacher layout scripts -->
-    <script src="../../js/components/teacher-topbar.js"></script>
-    <script type="module" src="../../js/components/teacher-sidebar.js">
-    </script>
-    <script type="module" src="../../js/components/teacher-topbar.js">
-    </script>
-
-</body>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../../js/core/app.js"></script>
+    <script type="module" src="../../js/components/teacher-topbar.js"></script>
+    <script type="module" src="../../js/components/teacher-sidebar.js"></script>
+    <script type="module" src="../../js/teacher/profile.js"></script>
+  </body>
 </html>

@@ -1,26 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Manage programming exams in the Looply teacher dashboard.">
+    <meta
+      name="description"
+      content="Manage programming exams in the Looply teacher dashboard."
+    />
 
     <title>Looply | Exams</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
 
-    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/base.css" />
 
-    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/dashboard.css" />
 
-    <link rel="stylesheet" href="../../css/exam.css">
-</head>
+    <link rel="stylesheet" href="../../css/exam.css" />
+  </head>
 
-<body class="teacher-page">
-
+  <body class="teacher-page">
     <!-- Shared teacher topbar -->
     <header id="teacher-topbar-root"></header>
 
@@ -31,566 +35,486 @@
     <div id="teacher-sidebar-overlay" class="teacher-sidebar-overlay"></div>
 
     <main class="teacher-main">
+      <div class="teacher-content exams-page">
+        <!-- Page header -->
+        <section class="exams-page-header">
+          <div class="exams-header-content">
+            <span class="dashboard-page-label"> Exam Management </span>
 
-        <div class="teacher-content exams-page">
+            <h1 class="dashboard-page-title">Exams</h1>
 
-            <!-- Page header -->
-            <section class="exams-page-header">
+            <p class="dashboard-page-description">
+              Create, edit, activate, deactivate, and manage programming exams.
+            </p>
+          </div>
 
-                <div class="exams-header-content">
+          <a href="exam-form.html" class="primary-btn create-exam-btn">
+            <i class="bi bi-plus-lg" aria-hidden="true"></i>
 
-                    <span class="dashboard-page-label">
-                        Exam Management
+            <span>Create Exam</span>
+          </a>
+        </section>
+
+        <!-- Exams panel -->
+        <section class="exams-panel">
+          <!-- Panel header -->
+          <div class="exams-panel-header">
+            <div class="exams-panel-heading">
+              <div class="exams-title-row">
+                <h2>All Exams</h2>
+
+                <span class="exams-count"> 4 exams </span>
+              </div>
+
+              <p>Search, review, and manage all created exams.</p>
+            </div>
+
+            <!-- Search and filters -->
+            <div class="exams-toolbar">
+              <div class="exams-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+
+                <input
+                  type="search"
+                  id="teacher-exam-search"
+                  placeholder="Search exams..."
+                  aria-label="Search exams"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="exams-filter" aria-label="Filter exams by status">
+                <button
+                  type="button"
+                  class="exams-filter-btn active"
+                  data-exam-filter="all"
+                  aria-pressed="true"
+                >
+                  All
+                </button>
+
+                <button
+                  type="button"
+                  class="exams-filter-btn"
+                  data-exam-filter="active"
+                  aria-pressed="false"
+                >
+                  Active
+                </button>
+
+                <button
+                  type="button"
+                  class="exams-filter-btn"
+                  data-exam-filter="inactive"
+                  aria-pressed="false"
+                >
+                  Inactive
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Exams table -->
+          <div class="exams-table-wrapper">
+            <table class="exams-table">
+              <thead>
+                <tr>
+                  <th scope="col">Exam</th>
+                  <th scope="col">Start Date</th>
+                  <th scope="col">End Date</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Questions</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+
+              <tbody id="teacher-exams-body">
+                <!-- Exam 1 -->
+                <tr
+                  data-exam-row
+                  data-exam-id="exam-1"
+                  data-exam-title="javascript fundamentals"
+                  data-exam-status="active"
+                >
+                  <td>
+                    <div class="exam-identity">
+                      <span class="exam-icon">
+                        <i class="bi bi-braces" aria-hidden="true"></i>
+                      </span>
+
+                      <div>
+                        <strong> JavaScript Fundamentals </strong>
+
+                        <small> Programming exam </small>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>
+                    <div class="exam-date">
+                      <span>Jul 16, 2026</span>
+
+                      <small>10:00 AM</small>
+                    </div>
+                  </td>
+
+                  <td>
+                    <div class="exam-date">
+                      <span>Jul 22, 2026</span>
+
+                      <small>4:00 PM</small>
+                    </div>
+                  </td>
+
+                  <td>
+                    <span class="exam-status exam-status-active"> Active </span>
+                  </td>
+
+                  <td>
+                    <span class="exam-question-count"> 20 </span>
+                  </td>
+
+                  <td>
+                    <div class="exam-actions">
+                      <a
+                        href="exam-details.html"
+                        class="exam-action-btn"
+                        title="View exam"
+                        aria-label="View JavaScript Fundamentals exam"
+                      >
+                        <i class="bi bi-eye" aria-hidden="true"></i>
+                      </a>
+
+                      <a
+                        href="exam-form.html"
+                        class="exam-action-btn"
+                        title="Edit exam"
+                        aria-label="Edit JavaScript Fundamentals exam"
+                      >
+                        <i class="bi bi-pencil" aria-hidden="true"></i>
+                      </a>
+
+                      <button
+                        type="button"
+                        class="exam-toggle-btn exam-deactivate-btn"
+                        data-exam-toggle
+                        data-exam-id="exam-1"
+                        data-next-status="inactive"
+                        title="Deactivate exam"
+                        aria-label="Deactivate JavaScript Fundamentals exam"
+                      >
+                        <i class="bi bi-pause-circle" aria-hidden="true"></i>
+
+                        <span>Deactivate</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="exam-action-btn exam-delete-btn"
+                        data-delete-exam
+                        data-exam-id="exam-1"
+                        title="Delete exam"
+                        aria-label="Delete JavaScript Fundamentals exam"
+                      >
+                        <i class="bi bi-trash" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Exam 2 -->
+                <tr
+                  data-exam-row
+                  data-exam-id="exam-2"
+                  data-exam-title="html css essentials"
+                  data-exam-status="inactive"
+                >
+                  <td>
+                    <div class="exam-identity">
+                      <span class="exam-icon">
+                        <i class="bi bi-filetype-html" aria-hidden="true"></i>
+                      </span>
+
+                      <div>
+                        <strong> HTML &amp; CSS Essentials </strong>
+
+                        <small> Programming exam </small>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>
+                    <div class="exam-date">
+                      <span>Jul 20, 2026</span>
+
+                      <small>10:00 AM</small>
+                    </div>
+                  </td>
+
+                  <td>
+                    <div class="exam-date">
+                      <span>Jul 25, 2026</span>
+
+                      <small>12:00 PM</small>
+                    </div>
+                  </td>
+
+                  <td>
+                    <span class="exam-status exam-status-inactive">
+                      Inactive
                     </span>
+                  </td>
 
-                    <h1 class="dashboard-page-title">
-                        Exams
-                    </h1>
+                  <td>
+                    <span class="exam-question-count"> 25 </span>
+                  </td>
 
-                    <p class="dashboard-page-description">
-                        Create, edit, activate, deactivate, and manage
-                        programming exams.
-                    </p>
+                  <td>
+                    <div class="exam-actions">
+                      <a
+                        href="exam-details.html"
+                        class="exam-action-btn"
+                        title="View exam"
+                        aria-label="View HTML and CSS Essentials exam"
+                      >
+                        <i class="bi bi-eye" aria-hidden="true"></i>
+                      </a>
 
-                </div>
+                      <a
+                        href="exam-form.html"
+                        class="exam-action-btn"
+                        title="Edit exam"
+                        aria-label="Edit HTML and CSS Essentials exam"
+                      >
+                        <i class="bi bi-pencil" aria-hidden="true"></i>
+                      </a>
 
-                <a href="exam-form.html" class="primary-btn create-exam-btn">
-                    <i class="bi bi-plus-lg" aria-hidden="true"></i>
+                      <button
+                        type="button"
+                        class="exam-toggle-btn exam-activate-btn"
+                        data-exam-toggle
+                        data-exam-id="exam-2"
+                        data-next-status="active"
+                        title="Activate exam"
+                        aria-label="Activate HTML and CSS Essentials exam"
+                      >
+                        <i class="bi bi-play-circle" aria-hidden="true"></i>
 
-                    <span>Create Exam</span>
-                </a>
+                        <span>Activate</span>
+                      </button>
 
-            </section>
-
-            <!-- Exams panel -->
-            <section class="exams-panel">
-
-                <!-- Panel header -->
-                <div class="exams-panel-header">
-
-                    <div class="exams-panel-heading">
-
-                        <div class="exams-title-row">
-
-                            <h2>All Exams</h2>
-
-                            <span class="exams-count">
-                                4 exams
-                            </span>
-
-                        </div>
-
-                        <p>
-                            Search, review, and manage all created exams.
-                        </p>
-
+                      <button
+                        type="button"
+                        class="exam-action-btn exam-delete-btn"
+                        data-delete-exam
+                        data-exam-id="exam-2"
+                        title="Delete exam"
+                        aria-label="Delete HTML and CSS Essentials exam"
+                      >
+                        <i class="bi bi-trash" aria-hidden="true"></i>
+                      </button>
                     </div>
+                  </td>
+                </tr>
 
-                    <!-- Search and filters -->
-                    <div class="exams-toolbar">
+                <!-- Exam 3 -->
+                <tr
+                  data-exam-row
+                  data-exam-id="exam-3"
+                  data-exam-title="programming basics"
+                  data-exam-status="inactive"
+                >
+                  <td>
+                    <div class="exam-identity">
+                      <span class="exam-icon">
+                        <i class="bi bi-code-square" aria-hidden="true"></i>
+                      </span>
 
-                        <div class="exams-search">
+                      <div>
+                        <strong> Programming Basics </strong>
 
-                            <i class="bi bi-search" aria-hidden="true"></i>
-
-                            <input type="search" id="teacher-exam-search" placeholder="Search exams..."
-                                aria-label="Search exams" autocomplete="off">
-
-                        </div>
-
-                        <div class="exams-filter" aria-label="Filter exams by status">
-
-                            <button type="button" class="exams-filter-btn active" data-exam-filter="all"
-                                aria-pressed="true">
-                                All
-                            </button>
-
-                            <button type="button" class="exams-filter-btn" data-exam-filter="active"
-                                aria-pressed="false">
-                                Active
-                            </button>
-
-                            <button type="button" class="exams-filter-btn" data-exam-filter="inactive"
-                                aria-pressed="false">
-                                Inactive
-                            </button>
-
-                        </div>
-
+                        <small> Programming exam </small>
+                      </div>
                     </div>
-
-                </div>
-
-                <!-- Exams table -->
-                <div class="exams-table-wrapper">
-
-                    <table class="exams-table">
-
-                        <thead>
-                            <tr>
-                                <th scope="col">Exam</th>
-                                <th scope="col">Start Date</th>
-                                <th scope="col">End Date</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Questions</th>
-                                <th scope="col">Actions</th>
-                            </tr>
-                        </thead>
-
-                        <tbody id="teacher-exams-body">
-
-                            <!-- Exam 1 -->
-                            <tr data-exam-row data-exam-id="exam-1" data-exam-title="javascript fundamentals"
-                                data-exam-status="active">
-
-                                <td>
-
-                                    <div class="exam-identity">
-
-                                        <span class="exam-icon">
-
-                                            <i class="bi bi-braces" aria-hidden="true"></i>
-
-                                        </span>
-
-                                        <div>
-
-                                            <strong>
-                                                JavaScript Fundamentals
-                                            </strong>
-
-                                            <small>
-                                                Programming exam
-                                            </small>
-
-                                        </div>
-
-                                    </div>
-
-                                </td>
-
-                                <td>
-
-                                    <div class="exam-date">
-
-                                        <span>Jul 16, 2026</span>
-
-                                        <small>10:00 AM</small>
-
-                                    </div>
-
-                                </td>
-
-                                <td>
-
-                                    <div class="exam-date">
-
-                                        <span>Jul 22, 2026</span>
-
-                                        <small>4:00 PM</small>
-
-                                    </div>
-
-                                </td>
-
-                                <td>
-
-                                    <span class="exam-status exam-status-active">
-                                        Active
-                                    </span>
-
-                                </td>
-
-                                <td>
-
-                                    <span class="exam-question-count">
-                                        20
-                                    </span>
-
-                                </td>
-
-                                <td>
-
-                                    <div class="exam-actions">
-
-                                        <a href="exam-details.html" class="exam-action-btn" title="View exam"
-                                            aria-label="View JavaScript Fundamentals exam">
-                                            <i class="bi bi-eye" aria-hidden="true"></i>
-                                        </a>
-
-                                        <a href="exam-form.html" class="exam-action-btn" title="Edit exam"
-                                            aria-label="Edit JavaScript Fundamentals exam">
-                                            <i class="bi bi-pencil" aria-hidden="true"></i>
-                                        </a>
-
-                                        <button type="button" class="
-                                                exam-toggle-btn
-                                                exam-deactivate-btn
-                                            " data-exam-toggle data-exam-id="exam-1" data-next-status="inactive"
-                                            title="Deactivate exam"
-                                            aria-label="Deactivate JavaScript Fundamentals exam">
-                                            <i class="bi bi-pause-circle" aria-hidden="true"></i>
-
-                                            <span>Deactivate</span>
-                                        </button>
-
-                                        <button type="button" class="
-                                                exam-action-btn
-                                                exam-delete-btn
-                                            " data-delete-exam data-exam-id="exam-1" title="Delete exam"
-                                            aria-label="Delete JavaScript Fundamentals exam">
-                                            <i class="bi bi-trash" aria-hidden="true"></i>
-                                        </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-                            <!-- Exam 2 -->
-                            <tr data-exam-row data-exam-id="exam-2" data-exam-title="html css essentials"
-                                data-exam-status="inactive">
-
-                                <td>
-
-                                    <div class="exam-identity">
-
-                                        <span class="exam-icon">
-
-                                            <i class="bi bi-filetype-html" aria-hidden="true"></i>
-
-                                        </span>
-
-                                        <div>
-
-                                            <strong>
-                                                HTML &amp; CSS Essentials
-                                            </strong>
-
-                                            <small>
-                                                Programming exam
-                                            </small>
-
-                                        </div>
-
-                                    </div>
-
-                                </td>
-
-                                <td>
-
-                                    <div class="exam-date">
-
-                                        <span>Jul 20, 2026</span>
-
-                                        <small>10:00 AM</small>
-
-                                    </div>
-
-                                </td>
-
-                                <td>
-
-                                    <div class="exam-date">
-
-                                        <span>Jul 25, 2026</span>
-
-                                        <small>12:00 PM</small>
-
-                                    </div>
-
-                                </td>
-
-                                <td>
-
-                                    <span class="exam-status exam-status-inactive">
-                                        Inactive
-                                    </span>
-
-                                </td>
-
-                                <td>
-
-                                    <span class="exam-question-count">
-                                        25
-                                    </span>
-
-                                </td>
-
-                                <td>
-
-                                    <div class="exam-actions">
-
-                                        <a href="exam-details.html" class="exam-action-btn" title="View exam"
-                                            aria-label="View HTML and CSS Essentials exam">
-                                            <i class="bi bi-eye" aria-hidden="true"></i>
-                                        </a>
-
-                                        <a href="exam-form.html" class="exam-action-btn" title="Edit exam"
-                                            aria-label="Edit HTML and CSS Essentials exam">
-                                            <i class="bi bi-pencil" aria-hidden="true"></i>
-                                        </a>
-
-                                        <button type="button" class="
-                                                exam-toggle-btn
-                                                exam-activate-btn
-                                            " data-exam-toggle data-exam-id="exam-2" data-next-status="active"
-                                            title="Activate exam" aria-label="Activate HTML and CSS Essentials exam">
-                                            <i class="bi bi-play-circle" aria-hidden="true"></i>
-
-                                            <span>Activate</span>
-                                        </button>
-
-                                        <button type="button" class="
-                                                exam-action-btn
-                                                exam-delete-btn
-                                            " data-delete-exam data-exam-id="exam-2" title="Delete exam"
-                                            aria-label="Delete HTML and CSS Essentials exam">
-                                            <i class="bi bi-trash" aria-hidden="true"></i>
-                                        </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-                            <!-- Exam 3 -->
-                            <tr data-exam-row data-exam-id="exam-3" data-exam-title="programming basics"
-                                data-exam-status="inactive">
-
-                                <td>
-
-                                    <div class="exam-identity">
-
-                                        <span class="exam-icon">
-
-                                            <i class="bi bi-code-square" aria-hidden="true"></i>
-
-                                        </span>
-
-                                        <div>
-
-                                            <strong>
-                                                Programming Basics
-                                            </strong>
-
-                                            <small>
-                                                Programming exam
-                                            </small>
-
-                                        </div>
-
-                                    </div>
-
-                                </td>
-
-                                <td>
-
-                                    <div class="exam-date">
-
-                                        <span>Jul 10, 2026</span>
-
-                                        <small>11:00 AM</small>
-
-                                    </div>
-
-                                </td>
-
-                                <td>
-
-                                    <div class="exam-date">
-
-                                        <span>Jul 15, 2026</span>
-
-                                        <small>2:30 PM</small>
-
-                                    </div>
-
-                                </td>
-
-                                <td>
-
-                                    <span class="exam-status exam-status-inactive">
-                                        Inactive
-                                    </span>
-
-                                </td>
-
-                                <td>
-
-                                    <span class="exam-question-count">
-                                        30
-                                    </span>
-
-                                </td>
-
-                                <td>
-
-                                    <div class="exam-actions">
-
-                                        <a href="exam-details.html" class="exam-action-btn" title="View exam"
-                                            aria-label="View Programming Basics exam">
-                                            <i class="bi bi-eye" aria-hidden="true"></i>
-                                        </a>
-
-                                        <a href="exam-form.html" class="exam-action-btn" title="Edit exam"
-                                            aria-label="Edit Programming Basics exam">
-                                            <i class="bi bi-pencil" aria-hidden="true"></i>
-                                        </a>
-
-                                        <button type="button" class="
-                                                exam-toggle-btn
-                                                exam-activate-btn
-                                            " data-exam-toggle data-exam-id="exam-3" data-next-status="active"
-                                            title="Activate exam" aria-label="Activate Programming Basics exam">
-                                            <i class="bi bi-play-circle" aria-hidden="true"></i>
-
-                                            <span>Activate</span>
-                                        </button>
-
-                                        <button type="button" class="
-                                                exam-action-btn
-                                                exam-delete-btn
-                                            " data-delete-exam data-exam-id="exam-3" title="Delete exam"
-                                            aria-label="Delete Programming Basics exam">
-                                            <i class="bi bi-trash" aria-hidden="true"></i>
-                                        </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-                            <!-- Exam 4 -->
-                            <tr data-exam-row data-exam-id="exam-4" data-exam-title="database concepts"
-                                data-exam-status="active">
-
-                                <td>
-
-                                    <div class="exam-identity">
-
-                                        <span class="exam-icon">
-
-                                            <i class="bi bi-database" aria-hidden="true"></i>
-
-                                        </span>
-
-                                        <div>
-
-                                            <strong>
-                                                Database Concepts
-                                            </strong>
-
-                                            <small>
-                                                Programming exam
-                                            </small>
-
-                                        </div>
-
-                                    </div>
-
-                                </td>
-
-                                <td>
-
-                                    <div class="exam-date">
-
-                                        <span>Jul 24, 2026</span>
-
-                                        <small>9:00 AM</small>
-
-                                    </div>
-
-                                </td>
-
-                                <td>
-
-                                    <div class="exam-date">
-
-                                        <span>Jul 30, 2026</span>
-
-                                        <small>3:00 PM</small>
-
-                                    </div>
-
-                                </td>
-
-                                <td>
-
-                                    <span class="exam-status exam-status-active">
-                                        Active
-                                    </span>
-
-                                </td>
-
-                                <td>
-
-                                    <span class="exam-question-count">
-                                        18
-                                    </span>
-
-                                </td>
-
-                                <td>
-
-                                    <div class="exam-actions">
-
-                                        <a href="exam-details.html" class="exam-action-btn" title="View exam"
-                                            aria-label="View Database Concepts exam">
-                                            <i class="bi bi-eye" aria-hidden="true"></i>
-                                        </a>
-
-                                        <a href="exam-form.html" class="exam-action-btn" title="Edit exam"
-                                            aria-label="Edit Database Concepts exam">
-                                            <i class="bi bi-pencil" aria-hidden="true"></i>
-                                        </a>
-
-                                        <button type="button" class="
-                                                exam-toggle-btn
-                                                exam-deactivate-btn
-                                            " data-exam-toggle data-exam-id="exam-4" data-next-status="inactive"
-                                            title="Deactivate exam" aria-label="Deactivate Database Concepts exam">
-                                            <i class="bi bi-pause-circle" aria-hidden="true"></i>
-
-                                            <span>Deactivate</span>
-                                        </button>
-
-                                        <button type="button" class="
-                                                exam-action-btn
-                                                exam-delete-btn
-                                            " data-delete-exam data-exam-id="exam-4" title="Delete exam"
-                                            aria-label="Delete Database Concepts exam">
-                                            <i class="bi bi-trash" aria-hidden="true"></i>
-                                        </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-            </section>
-
-        </div>
-
+                  </td>
+
+                  <td>
+                    <div class="exam-date">
+                      <span>Jul 10, 2026</span>
+
+                      <small>11:00 AM</small>
+                    </div>
+                  </td>
+
+                  <td>
+                    <div class="exam-date">
+                      <span>Jul 15, 2026</span>
+
+                      <small>2:30 PM</small>
+                    </div>
+                  </td>
+
+                  <td>
+                    <span class="exam-status exam-status-inactive">
+                      Inactive
+                    </span>
+                  </td>
+
+                  <td>
+                    <span class="exam-question-count"> 30 </span>
+                  </td>
+
+                  <td>
+                    <div class="exam-actions">
+                      <a
+                        href="exam-details.html"
+                        class="exam-action-btn"
+                        title="View exam"
+                        aria-label="View Programming Basics exam"
+                      >
+                        <i class="bi bi-eye" aria-hidden="true"></i>
+                      </a>
+
+                      <a
+                        href="exam-form.html"
+                        class="exam-action-btn"
+                        title="Edit exam"
+                        aria-label="Edit Programming Basics exam"
+                      >
+                        <i class="bi bi-pencil" aria-hidden="true"></i>
+                      </a>
+
+                      <button
+                        type="button"
+                        class="exam-toggle-btn exam-activate-btn"
+                        data-exam-toggle
+                        data-exam-id="exam-3"
+                        data-next-status="active"
+                        title="Activate exam"
+                        aria-label="Activate Programming Basics exam"
+                      >
+                        <i class="bi bi-play-circle" aria-hidden="true"></i>
+
+                        <span>Activate</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="exam-action-btn exam-delete-btn"
+                        data-delete-exam
+                        data-exam-id="exam-3"
+                        title="Delete exam"
+                        aria-label="Delete Programming Basics exam"
+                      >
+                        <i class="bi bi-trash" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Exam 4 -->
+                <tr
+                  data-exam-row
+                  data-exam-id="exam-4"
+                  data-exam-title="database concepts"
+                  data-exam-status="active"
+                >
+                  <td>
+                    <div class="exam-identity">
+                      <span class="exam-icon">
+                        <i class="bi bi-database" aria-hidden="true"></i>
+                      </span>
+
+                      <div>
+                        <strong> Database Concepts </strong>
+
+                        <small> Programming exam </small>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>
+                    <div class="exam-date">
+                      <span>Jul 24, 2026</span>
+
+                      <small>9:00 AM</small>
+                    </div>
+                  </td>
+
+                  <td>
+                    <div class="exam-date">
+                      <span>Jul 30, 2026</span>
+
+                      <small>3:00 PM</small>
+                    </div>
+                  </td>
+
+                  <td>
+                    <span class="exam-status exam-status-active"> Active </span>
+                  </td>
+
+                  <td>
+                    <span class="exam-question-count"> 18 </span>
+                  </td>
+
+                  <td>
+                    <div class="exam-actions">
+                      <a
+                        href="exam-details.html"
+                        class="exam-action-btn"
+                        title="View exam"
+                        aria-label="View Database Concepts exam"
+                      >
+                        <i class="bi bi-eye" aria-hidden="true"></i>
+                      </a>
+
+                      <a
+                        href="exam-form.html"
+                        class="exam-action-btn"
+                        title="Edit exam"
+                        aria-label="Edit Database Concepts exam"
+                      >
+                        <i class="bi bi-pencil" aria-hidden="true"></i>
+                      </a>
+
+                      <button
+                        type="button"
+                        class="exam-toggle-btn exam-deactivate-btn"
+                        data-exam-toggle
+                        data-exam-id="exam-4"
+                        data-next-status="inactive"
+                        title="Deactivate exam"
+                        aria-label="Deactivate Database Concepts exam"
+                      >
+                        <i class="bi bi-pause-circle" aria-hidden="true"></i>
+
+                        <span>Deactivate</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="exam-action-btn exam-delete-btn"
+                        data-delete-exam
+                        data-exam-id="exam-4"
+                        title="Delete exam"
+                        aria-label="Delete Database Concepts exam"
+                      >
+                        <i class="bi bi-trash" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
     </main>
 
-    <!-- Shared layout scripts only -->
-    <script src="../../js/components/teacher-topbar.js"></script>
-    <script type="module" src="../../js/components/teacher-sidebar.js">
-    </script>
-    <script type="module" src="../../js/components/teacher-topbar.js">
-    </script>
-
-</body>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../../js/core/app.js"></script>
+    <script type="module" src="../../js/components/teacher-topbar.js"></script>
+    <script type="module" src="../../js/components/teacher-sidebar.js"></script>
+    <script type="module" src="../../js/teacher/exams.js"></script>
+  </body>
 </html>

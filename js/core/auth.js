@@ -1,5 +1,9 @@
 import * as CONFIG from "./config.js";
-import * as STORAGE from "./storage.js";
+import {
+    readSession,
+    removeSession,
+    writeSession
+} from "./storage.js";
 
 import {
     getUserById,
@@ -30,47 +34,16 @@ function createPublicUser(user) {
 }
 
 function readCurrentSessionValue() {
-    if (typeof STORAGE.readSession === "function") {
-        return STORAGE.readSession(SESSION_KEY, null);
-    }
-
-    try {
-        const storedValue = window.sessionStorage.getItem(SESSION_KEY);
-        return storedValue === null
-            ? null
-            : JSON.parse(storedValue);
-    } catch {
-        return null;
-    }
+    return readSession(SESSION_KEY, null);
 }
-
 
 function writeCurrentSessionValue(session) {
-    if (typeof STORAGE.writeSession === "function") {
-        return STORAGE.writeSession(SESSION_KEY, session);
-    }
-
-    window.sessionStorage.setItem(
-        SESSION_KEY,
-        JSON.stringify(session)
-    );
-
-    return session;
+    return writeSession(SESSION_KEY, session);
 }
-
 
 function removeCurrentSessionValue() {
-    if (typeof STORAGE.removeSession === "function") {
-        return STORAGE.removeSession(SESSION_KEY);
-    }
-
-    const existed =
-        window.sessionStorage.getItem(SESSION_KEY) !== null;
-
-    window.sessionStorage.removeItem(SESSION_KEY);
-    return existed;
+    return removeSession(SESSION_KEY);
 }
-
 
 function isSupportedRole(role) {
     return role === STUDENT_ROLE || role === TEACHER_ROLE;

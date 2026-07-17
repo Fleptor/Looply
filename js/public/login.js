@@ -1,5 +1,3 @@
-import "../components/navbar-home.js";
-
 import {
     getRoleHomeRoute,
     login,
@@ -9,9 +7,7 @@ import {
 import { initPublicPage } from "../core/app.js";
 
 import {
-    closeAlert,
     showError,
-    showLoading,
     showSuccessToast
 } from "../core/alerts.js";
 
@@ -160,93 +156,88 @@ function initializeLoginPage() {
     setLoginMessage(messageElement);
 
     form.addEventListener("submit", async (event) => {
-        event.preventDefault();
+    event.preventDefault();
 
-        const credentials = {
-            username: usernameInput?.value ?? "",
-            password: passwordInput?.value ?? ""
-        };
+    const credentials = {
+        username: usernameInput?.value ?? "",
+        password: passwordInput?.value ?? ""
+    };
 
-        const validation = validateLoginForm(
-            credentials
+    const validation = validateLoginForm(
+        credentials
+    );
+
+    setFieldValidity(
+        usernameInput,
+        !validation.errors.username
+    );
+
+    setFieldValidity(
+        passwordInput,
+        !validation.errors.password
+    );
+
+    if (!validation.isValid) {
+        const message = getFirstError(
+            validation.errors
         );
 
-        setFieldValidity(
-            usernameInput,
-            !validation.errors.username
+        await displayLoginError(
+            messageElement,
+            message
         );
 
-        setFieldValidity(
-            passwordInput,
-            !validation.errors.password
-        );
-
-        if (!validation.isValid) {
-            const message = getFirstError(
-                validation.errors
-            );
-
-            await displayLoginError(
-                messageElement,
-                message
-            );
-
-            if (validation.errors.username) {
-                usernameInput?.focus();
-            } else {
-                passwordInput?.focus();
-            }
-
-            return;
+        if (validation.errors.username) {
+            usernameInput?.focus();
+        } else {
+            passwordInput?.focus();
         }
 
-        setSubmittingState(submitButton, true);
-        setLoginMessage(messageElement);
+        return;
+    }
+
+    setSubmittingState(
+        submitButton,
+        true
+    );
+
+    setLoginMessage(messageElement);
+
+    try {
+        const user = login(
+            credentials.username,
+            credentials.password
+        );
 
         if (window.Swal) {
-            showLoading(
-                "Signing in...",
-                "Checking your account information."
-            );
-        }
-
-        try {
-            const user = login(
-                credentials.username,
-                credentials.password
+            showSuccessToast(
+                `Welcome back, ${user.fullName}.`
             );
 
-            if (window.Swal) {
-                closeAlert();
-                showSuccessToast(
-                    `Welcome back, ${user.fullName}.`
+            await new Promise((resolve) => {
+                window.setTimeout(
+                    resolve,
+                    650
                 );
-
-                await new Promise((resolve) => {
-                    window.setTimeout(resolve, 650);
-                });
-            }
-
-            redirectToDashboard(user);
-        } catch (error) {
-            if (window.Swal) {
-                closeAlert();
-            }
-
-            await displayLoginError(
-                messageElement,
-                error.message ||
-                    "Invalid username or password."
-            );
-
-            passwordInput?.select();
-        } finally {
-            setSubmittingState(
-                submitButton,
-                false
-            );
+            });
         }
-    });
+
+        redirectToDashboard(user);
+    } catch (error) {
+        await displayLoginError(
+            messageElement,
+            error.message ||
+                "Invalid username or password."
+        );
+
+        passwordInput?.select();
+    } finally {
+        setSubmittingState(
+            submitButton,
+            false
+        );
+    }
+});
 }
 
 if (document.readyState === "loading") {
